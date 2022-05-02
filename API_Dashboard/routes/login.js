@@ -28,7 +28,7 @@ const bcrypt = require("bcrypt");
  *           properties:
  *             identifier:
  *               type: string
- *               example: alexandre.anin@test.fr
+ *               example: email@test.com
  *             password:
  *               type: string
  *               example: 1234
@@ -70,7 +70,7 @@ app.post("/", (req, res) => {
             }
 
             if (result) {
-                if(result.length == 0) return res.status(404).send({msg: "User not foun.d"});
+                if(result.length == 0) return res.status(404).send({msg: "User not found"});
                 let user = result[0];
 
                 bcrypt.compare(body.password, user.password, (err, equal) => {

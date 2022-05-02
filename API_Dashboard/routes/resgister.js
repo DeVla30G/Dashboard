@@ -34,17 +34,17 @@ const validateEmail = (email) => {
  *         description: All the info about the user you're trying to register
  *     schema:
  *           required:
- *             - name
- *             - surname
+ *             - firstname
+ *             - lastname
  *             - username
  *             - email
  *             - password
  *             - description
  *           properties:
- *            name:
+ *            firstname:
  *               type: string
  *               example: Toto
- *            surname:
+ *            lastname:
  *               type: string
  *               example: toto
  *            username:
@@ -56,10 +56,6 @@ const validateEmail = (email) => {
  *            password:
  *               type: string
  *               example: mySuperSecretPassword
- *            birth_date:
- *               type: string
- *               description: Format yyyy/mm/dd
- *               example: 2003/04/23
  *     responses:
  *       200:
  *         description: All the user's info
@@ -74,7 +70,7 @@ app.post("/", (req, res) => {
     let body = req.body;
 
     // Check if body is complete
-    if (body.name && body.surname && body.username && body.email && body.password ) {
+    if (body.firstname && body.lastname && body.username && body.email && body.password ) {
 
         // Check email
         if (validateEmail(body.email)) {
@@ -83,17 +79,15 @@ app.post("/", (req, res) => {
 
                 // Hashing password
                 bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-                    const name = req.body.name;
-                    const surname = req.body.surname;
+                    const name = req.body.firstname;
+                    const surname = req.body.lastname;
                     const username = req.body.username;
                     const email = req.body.email;
                     const password = hash;
-                    const birth_date = req.body.birth_date;
-                    const profile_pic = req.body.profile_pic;
-                    const description = req.body.description;
+                    const avatar = req.body.avatar;
                     const role = 0;
 
-                    con.query(`INSERT INTO users (name, surname, username, email, password, profile_pic, birth_date, role, create_time, update_time, description) VALUES ("${name}", "${surname}", "${username}", "${email}", "${password}", "${profile_pic}", "${birth_date}", "${role}", now(), now(), "${description}")`, async (err, result, fields) => {
+                    con.query(`INSERT INTO users (firstname, lastname, username, email, password, avatar, role, create_time, update_time, content) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${avatar}", "${role}", now(), now(), "${content}")`, async (err, result, fields) => {
                         if (err) {
                             if (err.code == "ER_DUP_ENTRY") {
                                 res.status(409).send({msg:"User already exists."});
