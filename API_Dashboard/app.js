@@ -15,10 +15,10 @@ const port = process.env.PORT || 3000;
 const swaggerOptions = {
     swaggerDefinition: {
         info: {
-          tittle: 'yowl API',
-          description: 'yowl API Information',
+          tittle: 'API Dashboard',
+          description: 'An entry point API assembeling different external APIs',
           contact: {
-            name: "VlaSamAlex"
+            name: "VlaSamFani"
           },
           servers: ["http://localhost:3000"]
         }
