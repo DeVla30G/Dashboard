@@ -2,7 +2,7 @@ var express = require('express');
 var app = express.Router();
 
 const jwt = require("jsonwebtoken");
-
+const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const { default: axios } = require('axios');
@@ -128,3 +128,5 @@ app.post("/", (req, res) => {
 })
 
 module.exports = app;
+
+    
