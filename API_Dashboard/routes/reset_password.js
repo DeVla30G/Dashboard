@@ -3,7 +3,7 @@ var app = express.Router();
 
 const front_Url = require("../config.json").front_url;
 
-const resetPasswordLink = front_Url + "/change-password?user=";
+const resetPasswordLink = front_Url + "/change_password?user=";
 
 const nodemailer = require("nodemailer");
 
@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 
 /**
  * @swagger
- * /reset-password:
+ * /reset_password:
  *   post:
  *     produces:
  *       - text/plain
@@ -61,17 +61,18 @@ app.post("/", (req, res) => {
             if (result) {
                 //Send mail
                 let transporter = nodemailer.createTransport({
-                    service: "trapmail",
+                    host: "smtp.mailtrap.io",
+                    port: 2525,
                     auth: {
-                        user: "our@trapmail.com",
-                        pass: "il faudrait le hasher"
+                        user: "ba8b8d3ae15c5f",
+                        pass: "98cfbacc21dab2"
                     }
                 })
 
                 let link = resetPasswordLink + token;
 
                 const options = {
-                    from: "our@trapmail.com",
+                    from: "fanny@mailtrap.com",
                     to: email,
                     subject: "Dashboard - password recovery",
                     html: `<body style="font-family: sans-serif; text-align: center; background-color: #eee">
