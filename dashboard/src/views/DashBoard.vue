@@ -1,51 +1,16 @@
 <template>
-<div class="board">
-<header>
-  <img src="#" alt="logo app">
+<b-card-header class="header">  <img src="../assets/Dash_logo.png" alt="logo app"/></b-card-header>
+<side-bar></side-bar>
   <h1>Dashboard</h1>
-  <div></div>
-</header>
-<SideBar></SideBar>
+
 <button-global></button-global>
-
-<div class="pb-xlg h-100">
-  <section class="h-100 mb-0 widget">
-  <h2 class="title">Visits Today</h2>
-  <div class="widgetControls widget-controls">
-    <a href="#" id="closeId-7"><i class="la la-remove"></i></a>
-    </div>
-      <div class="widgetBody widget-body ">
-        <div class="d-flex justify-content-between align-items-center mb-lg">
-          <h2>4,332</h2>
-          <h1>&UpperRightArrow;</h1>
-          </div>
-          <div class="d-flex flex-wrap justify-content-between">
-            <div class="mt">
-            <h6>+830</h6>
-            <p class="text-muted mb-0 mr">Logins</p>
-          </div>
-          <div class="mt">
-            <h6>0.5%</h6>
-            <p class="text-muted mb-0">Sign Out</p>
-          </div>
-              <div class="mt">
-                <h6>4.5%</h6>
-              <p class="text-muted mb-0 mr">Rate</p>
-              </div>
-         </div>
-        </div>
-    </section>
-</div>
-<h2>Users data</h2>
-
-<footer></footer>
-</div>
 </template>
 
 <script>
 // import axios from 'axios'
 import ButtonGlobal from '@/components/ButtonGlobal.vue'
 import SideBar from '@/components/SideBar.vue'
+// import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 
 export default {
@@ -58,16 +23,18 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;1,400&family=Righteous&family=Zen+Antique&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
-.board{
-  padding:3em;
-  background-color:rgb(234, 232, 230);
-}
-header{
+.header{
+  background-color:rgb(35, 4, 145);
+  width:100%;
+  height: auto;
+  padding:1em;
   display: inline-flex;
   justify-content: space-between;
+}
+.header img{
+  width: 5em;
+  height: auto;
 }
 .header_kpi{
   font-family: 'kanit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
