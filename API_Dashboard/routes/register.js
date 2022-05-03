@@ -40,10 +40,10 @@ const validateEmail = (email) => {
  *             - email
  *             - password
  *           properties:
- *            name:
+ *            firstname:
  *               type: string
  *               example: Toto
- *            surname:
+ *            lastname:
  *               type: string
  *               example: toto
  *            username:
@@ -83,12 +83,10 @@ app.post("/", (req, res) => {
                     const username = req.body.username;
                     const email = req.body.email;
                     const password = hash;
-                    const birth_date = req.body.birth_date;
-                    const profile_pic = req.body.profile_pic;
-                    const description = req.body.description;
+                    const avatar = req.body.avatar;
                     const role = 0;
 
-                    con.query(`INSERT INTO users (firstname, lastname, username, email, password, profile_pic, birth_date, role, create_time, update_time, description) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${profile_pic}", "${birth_date}", "${role}", now(), now(), "${description}")`, async (err, result, fields) => {
+                    con.query(`INSERT INTO users (firstname, lastname, username, email, password, avatar, role, create_time, update_time) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${avatar}", "${role}", now(), now())`, async (err, result, fields) => {
                         if (err) {
                             if (err.code == "ER_DUP_ENTRY") {
                                 res.status(409).send({msg:"User already exists."});

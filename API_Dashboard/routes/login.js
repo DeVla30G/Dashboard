@@ -23,12 +23,12 @@ const bcrypt = require("bcrypt");
  *         schema:  
  *           type: object
  *           required:
- *             - identifier
+ *             - email
  *             - password
  *           properties:
- *             identifier:
+ *             email:
  *               type: string
- *               example: alexandre.anin@test.fr
+ *               example: email@test.com
  *             password:
  *               type: string
  *               example: 1234
@@ -48,7 +48,7 @@ const bcrypt = require("bcrypt");
  */
 app.post("/", (req, res) => {
     let body = req.body;
-    if (body.identifier && body.password) {
+    if (body.email && body.password) {
 
         let sql = "";
 
@@ -60,8 +60,8 @@ app.post("/", (req, res) => {
                 );
         };
 
-        if (validateEmail(body.identifier)) sql = `SELECT * FROM users WHERE email="${body.identifier}"`
-        else sql = `SELECT * FROM users WHERE username="${body.identifier}"`;
+        if (validateEmail(body.email)) sql = `SELECT * FROM users WHERE email="${body.email}"`
+        else sql = `SELECT * FROM users WHERE username="${body.email}"`;
 
         con.query(sql, (err, result, fields) => {
             if (err) {
@@ -70,7 +70,7 @@ app.post("/", (req, res) => {
             }
 
             if (result) {
-                if(result.length == 0) return res.status(404).send({msg: "User not foun.d"});
+                if(result.length == 0) return res.status(404).send({msg: "User not found"});
                 let user = result[0];
 
                 bcrypt.compare(body.password, user.password, (err, equal) => {
@@ -95,7 +95,7 @@ app.post("/", (req, res) => {
         })
 
     } else {
-        res.status(401).send({ msg: "Please make sure your request includes a username (or email) and a password" });
+        res.status(401).send({ msg: "Please make sure your request includes a email and a password" });
         return;
     }
 });

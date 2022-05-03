@@ -150,7 +150,7 @@ app.get("/:id", (req, res) => {
 
  app.patch("/users/:id", verifyIdentity, (req, res) => {
 
-    let sql = `UPDATE users SET username = "${req.body.username}", profile_pic = "${req.body.profile_pic}" WHERE id = 'id';`
+    let sql = `UPDATE users SET username = "${req.body.username}", avatar = "${req.body.avatar}" WHERE id = 'id';`
 
     con.query(sql, async (error, res, fields) => {
      if (error) console.log(error);
