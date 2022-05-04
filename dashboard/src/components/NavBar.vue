@@ -1,18 +1,15 @@
 <template>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <!-- Container wrapper -->
     <div class="container-fluid">
+      <img src="../assets/Dash_logo.png" alt="logo-dashboard"/>
       <!-- Toggle button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
         data-mdb-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+        aria-label="Toggle navigation" >
         <i class="fas fa-bars"></i>
       </button>
       <!-- Collapsible wrapper -->
@@ -22,7 +19,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link style="text-decoration: none" :to="'/'"
-              ><a class="nav-link" href="#">Home</a></router-link
+              ><a class="nav-link" href="#">Dashboard</a></router-link
             >
           </li>
           <li class="nav-item"></li>
@@ -42,9 +39,8 @@
             >
           </li>
           <li class="nav-item">
-            <router-link style="text-decoration: none" :to="'/login'"
-              ><a class="nav-link" href="#">Login</a></router-link
-            >
+            <router-link style="text-decoration: none" :to="'/login'">
+            <a class="nav-link" href="#">Login</a></router-link>
           </li>
         </ul>
         <!-- Notifications -->
@@ -74,12 +70,8 @@
           </li>
         </ul>
       </div> -->
-        <p
-          v-if="this.token != null"
-          style="margin-top: 15px; padding-right: 5px"
-        >
-          {{ user.name }}
-        </p>
+        <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
+          {{ user.name }} </p>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
           <a
@@ -88,30 +80,17 @@
             id="navbarDropdownMenuAvatar"
             role="button"
             data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              :src="user.avatar"
-              class="rounded-circle"
-              height="25"
-              alt="User Image"
-              loading="lazy"
-              style="border-radius: 60%; height: 30px; width: 30px"
-            />
+            aria-expanded="false">
+            <img :src="user.avatar" class="rounded-circle" height="25" alt="User Image" loading="lazy"
+              style="border-radius: 60%; height: 30px; width: 30px"/>
           </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuAvatar"
-          >
+          <ul class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-              <router-link style="text-decoration: none" :to="'/profil'"
-                ><a class="dropdown-item" href="#">Profil</a></router-link
-              >
+<router-link style="text-decoration: none" :to="'/profil'"><a class="dropdown-item" href="#">Profil</a></router-link>
             </li>
             <li v-if="user.is_admin == 1">
-              <router-link style="text-decoration: none" :to="'/AccueilCrud'"
-                ><a class="dropdown-item" href="#">Admin</a></router-link
-              >
+<router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
             </li>
             <li>
               <a @click="logout" class="dropdown-item" href="#">Logout</a>
@@ -163,7 +142,19 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Zen+Antique&display=swap');
 .nav-item .router-link {
   text-decoration: none;
+}
+.navbar{
+  background-color: rgb(27, 22, 39);
+}
+.navbar img{
+  margin:1em;
+}
+.navbar-nav{
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+  font-size: 24px;
 }
 </style>
