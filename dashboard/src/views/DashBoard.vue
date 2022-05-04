@@ -1,8 +1,8 @@
 <template>
-<div class="board">
-<header>
-  <img src="#" alt="logo app">
+<b-card-header class="header">  <img src="../assets/Dash_logo.png" alt="logo app"/></b-card-header>
+<side-bar></side-bar>
   <h1>Dashboard</h1>
+<<<<<<< HEAD
   <div></div>
 </header>
 <SideBar></SideBar>
@@ -37,15 +37,17 @@
     </section>
 </div>
 <h2>Users data</h2>
+=======
+>>>>>>> 4e1cebb44f436f8a273f3449e69e308282b8930d
 
-<footer></footer>
-</div>
+<button-global></button-global>
 </template>
 
 <script>
 // import axios from 'axios'
 import ButtonGlobal from '@/components/ButtonGlobal.vue'
 import SideBar from '@/components/SideBar.vue'
+// import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 
 export default {
@@ -58,16 +60,18 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;1,400&family=Righteous&family=Zen+Antique&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
-.board{
-  padding:3em;
-  background-color:rgb(234, 232, 230);
-}
-header{
+.header{
+  background-color:rgb(35, 4, 145);
+  width:100%;
+  height: auto;
+  padding:1em;
   display: inline-flex;
   justify-content: space-between;
+}
+.header img{
+  width: 5em;
+  height: auto;
 }
 .header_kpi{
   font-family: 'kanit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

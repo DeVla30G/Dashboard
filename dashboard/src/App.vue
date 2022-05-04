@@ -1,26 +1,21 @@
 <template>
+<<<<<<< HEAD
  <router-view/>
+=======
+  <nav>
+    <router-view></router-view>
+  </nav>
+>>>>>>> 4e1cebb44f436f8a273f3449e69e308282b8930d
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+body{
+  background-image: url("../src/assets/triangles-background.webp");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
 }
 </style>
