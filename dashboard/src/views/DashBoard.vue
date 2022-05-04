@@ -22,7 +22,7 @@
           <div class="d-flex flex-wrap justify-content-between">
             <div class="mt">
             <h6>+830</h6>
-            <p class="text-muted mb-0 mr">Logins</p>
+            <p class="text-muted mb-0 mr">Login</p>
           </div>
           <div class="mt">
             <h6>0.5%</h6>
