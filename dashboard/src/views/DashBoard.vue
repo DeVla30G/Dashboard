@@ -1,14 +1,14 @@
 <template>
-<b-card-header class="header">  <img src="../assets/Dash_logo.png" alt="logo app"/></b-card-header>
+<b-card-header class="header"> <NavBar /> <img src="../assets/Dash_logo.png" alt="logo app"/> </b-card-header>
 <side-bar></side-bar>
   <h1>Dashboard</h1>
-
-<button-global></button-global>
+<ButtonGlobal />
 </template>
 
 <script>
 // import axios from 'axios'
 import ButtonGlobal from '@/components/ButtonGlobal.vue'
+import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
@@ -17,6 +17,7 @@ export default {
   name: 'DashBoard',
   components: {
     ButtonGlobal,
+    NavBar,
     SideBar
   }
 }
