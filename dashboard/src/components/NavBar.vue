@@ -141,7 +141,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:8000/api/user', {
+      .get('http://localhost:3000/users', {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -154,7 +154,7 @@ export default {
   computed () {},
   methods: {
     logout () {
-      axios.get('http://localhost:8000/api/logout')
+      axios.get('http://localhost:3000/users')
       localStorage.removeItem('myToken')
       this.$router.push('/login')
     }

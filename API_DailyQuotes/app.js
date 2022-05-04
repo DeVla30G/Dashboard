@@ -8,14 +8,13 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const fs = require("fs");
 const con = require('./config/db.js');
-const jwt = require('jsonwebtoken');
-require("dotenv").config();
+
 const port = process.env.PORT || 3030;
 
 const swaggerOptions = {
     swaggerDefinition: {
         info: {
-          tittle: 'API Dashboard',
+          tittle: 'API DailyQuotes',
           description: 'An entry point API assembeling different external APIs',
           contact: {
             name: "VlaSamFani"
@@ -72,20 +71,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 });
-
-/*const user = {
-  id: '12',
-  name : 'test',
-  email: 'test@test.fr',
-  admin: true
-
-};
-
-function generateAccessToken(user) {
-  return jwt.sign((user, process.env.ACCESS_TOKEN_SECRET))
-};
-
-const accessToken = generateAccessToken(user);
-console.log('accessToken', accessToken);*/
 
 module.exports = app;
