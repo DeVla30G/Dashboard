@@ -6,7 +6,7 @@
             <li><img src="" alt="" /></li>
             <li>Your Daily Quote</li>
           </ul>
-          <p>{{quotes}}</p>
+          <p>{{quotes.positive}}</p>
         </div>
       </div>
 
@@ -25,7 +25,9 @@ export default {
 
   data () {
     return {
-      quotes: []
+      quotes: [
+        { positive: '' }
+      ]
     }
   },
   mounted () {

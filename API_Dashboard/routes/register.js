@@ -19,19 +19,6 @@ const validateEmail = (email) => {
 
 // Get age function
 
-function getAge(birthDateString) {
-    console.log(birthDateString);
-    let today = new Date();
-    let birthDate = new Date(birthDateString);
-    console.log(birthDate);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    let m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    console.log(age);
-    return age;
-}
 
 /**
  * @swagger
@@ -89,6 +76,9 @@ app.post("/", (req, res) => {
         // Check email
         if (validateEmail(body.email)) {
 
+            // Check if > 13yo
+
+
                 // Hashing password
                 bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
                     const firstname = req.body.firstname;
@@ -98,7 +88,7 @@ app.post("/", (req, res) => {
                     const password = hash;
                     const role = 0;
 
-                    con.query(`INSERT INTO users (firstname, lastname, username, email, password,role, create_time, update_time) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${role}", now(), now())`, async (err, result, fields) => {
+                    con.query(`INSERT INTO users (firstname, lastname, username, email, password, role, create_time, update_time) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${role}", now(), now())`, async (err, result, fields) => {
                         if (err) {
                             if (err.code == "ER_DUP_ENTRY") {
                                 res.status(409).send({msg:"User already exists."});
@@ -109,8 +99,8 @@ app.post("/", (req, res) => {
                         }
 
                         if (result) {
-                            axios.post('http://localhost:3000/register', {
-                                identifier: body.email,
+                            axios.post('http://localhost:3000/login', {
+                                email: body.email,
                                 password: body.password
                             }).then(response => {
                                 console.log(response);
@@ -121,6 +111,51 @@ app.post("/", (req, res) => {
                                 console.log(err);
                                 res.status(500).send(err);
                                 return;
+                            })
+                            let transporter = nodemailer.createTransport({
+                                host: "smtp.mailtrap.io",
+                                port: 2525,
+                                auth: {
+                                    user: "ba8b8d3ae15c5f",
+                                    pass: "98cfbacc21dab2"
+                                }
+                            })
+                            let link = 'http://localhost:8080/login';
+                            const options = {
+                                from: "fanny@mailtrap.com",
+                                to: email,
+                                subject: "Dashboard - password recovery",
+                                html: `<body style="font-family: sans-serif; text-align: center; background-color: #eee">
+                                <div style="background-color: #fff; border-radius: 3px; position: absolute;
+                                top: 50%;
+                                -ms-transform: translateY(-50%);
+                                transform: translate(-50%,-50%); padding: 30px 0px; left: 50%;">
+                                  <img style="width: 10%;" src="https://something blob here or avatar pic" />
+                                    <h3 style="margin-top: 20px;">Hello</h3>
+                                  <p style="min-width: 400px; margin: 0 auto; margin-bottom: 20px;">
+                                  Welcome on Dashboard !<br>
+                                  <br>
+                                  Please confirm your account<br>
+                                  <br>
+                                  Click the button below to complete the process.
+                                  </p>
+
+                                  <a href="${link}" style="background-color: #F6A433; color : #fff; padding: 10px 7px; text-decoration: none; border-radius: 0.375rem;">Confirm account</a>
+                                </div>
+
+                              </body>`
+                            }
+
+                            transporter.sendMail(options, (err, info) => {
+                                if (err) {
+                                    console.log(err);
+                                    res.status(500).send(err);
+                                    return;
+                                }
+
+                                console.log(info);
+                                res.status(201).send({ msg: "The mail was successfully sent (if you can't see it, it is probably in your spams)." });
+                                return
                             })
                         }
                     })
@@ -140,3 +175,65 @@ app.post("/", (req, res) => {
 })
 
 module.exports = app;
+
+
+/* let link = axios.post('http://localhost:3000/login', {
+                            email: body.email,
+                            password: body.password
+                        }).then(response => {
+                            console.log(response);
+                            res.status(200).send(response.data);
+                            return;
+                        }
+
+                        if (result) {
+                            axios.post('http://localhost:3000/register', {
+                                identifier: body.email,
+                                password: body.password
+                            }).then(response => {
+                                console.log(response);
+                                res.status(200).send(response.data);
+                                return;
+                            })
+                            .catch(err => {
+                                console.log(err);
+                                res.status(500).send(err);
+                                return;
+                            })
+
+                        const options = {
+                            from: "fanny@mailtrap.com",
+                            to: email,
+                            subject: "Dashboard - password recovery",
+                            html: `<body style="font-family: sans-serif; text-align: center; background-color: #eee">
+                            <div style="background-color: #fff; border-radius: 3px; position: absolute;
+                            top: 50%;
+                            -ms-transform: translateY(-50%);
+                            transform: translate(-50%,-50%); padding: 30px 0px; left: 50%;">
+                              <img style="width: 10%;" src="https://something blob here or avatar pic" />
+                                <h3 style="margin-top: 20px;">Hello</h3>
+                              <p style="min-width: 400px; margin: 0 auto; margin-bottom: 20px;">
+                              Welcome on Dashboard !<br>
+                              <br>
+                              Please confirm your account<br>
+                              <br>
+                              Click the button below to complete the process.
+                              </p>
+
+                              <a href="${link}" style="background-color: #F6A433; color : #fff; padding: 10px 7px; text-decoration: none; border-radius: 0.375rem;">Confirm account</a>
+                            </div>
+
+                          </body>`
+                        }
+
+                        transporter.sendMail(options, (err, info) => {
+                            if (err) {
+                                console.log(err);
+                                res.status(500).send(err);
+                                return;
+                            }
+
+                            console.log(info);
+                            res.status(201).send({ msg: "The mail was successfully sent (if you can't see it, it is probably in your spams)." });
+                            return
+                        })*/
