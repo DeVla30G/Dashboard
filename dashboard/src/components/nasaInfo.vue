@@ -1,23 +1,28 @@
 <template>
 <div class="nasa_pic_wrapper" >
-    <h2> Date {{ result }} </h2>
-    <img src="picture" alt="nasa picture of the day"/>
+    <h2> Date </h2>
+    <p> {{ text.explanation }} </p>
 </div>
 </template>
 
 <script>
-// import axios from 'axios'
 
 export default {
-  name: 'nasaPic',
+  name: 'nasaInfo',
   data () {
     return {
-      result: ''
+      text: []
     }
   },
   created () {
-    fetch('http://localhost:3100/nasa', { method: 'GET', redirect: 'follow', mode: 'no-cors' })
-      .then(response => response.json())
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      mode: 'no-cors'
+    }
+
+    fetch('http://localhost:3100/nasa', requestOptions)
+      .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error))
   }
@@ -30,8 +35,9 @@ export default {
     background-color: rgb(139, 139, 187);
     width:20em;
     height:15em;
+    margin-left:20em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-
+    margin-top:0;
 }
 </style>

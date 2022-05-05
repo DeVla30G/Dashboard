@@ -43,7 +43,7 @@ export default {
 <style scoped>
 .SideBar{
     flex: 1;
-    width:15%;
+    width:100%;
     height: 100vh;
     background-color: rgb(27, 22, 39);
     top:30px;

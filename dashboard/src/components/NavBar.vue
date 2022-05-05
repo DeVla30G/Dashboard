@@ -18,8 +18,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link style="text-decoration: none" :to="'/'"
-              ><a class="nav-link" href="#">Dashboard</a></router-link
+<router-link style="text-decoration: none" :to="'/'"><a class="nav-link" href="#">Dashboard</a></router-link
             >
           </li>
           <li class="nav-item"></li>

@@ -2,12 +2,10 @@
 <header>
   <NavBar />
 </header>
-<aside>
+<aside class="side">
   <side-bar/>
 </aside>
-<div class="dashboard_body" id="app">
-  <nasa-pic/>
-</div>
+  <nasa-pic/> <nasa-info/>
 
 </template>
 
@@ -17,6 +15,7 @@
 import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
+import nasaInfo from '@/components/nasaInfo.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 
@@ -25,7 +24,8 @@ export default {
   components: {
     NavBar,
     SideBar,
-    nasaPic
+    nasaPic,
+    nasaInfo
   }
 }
 </script>
@@ -44,10 +44,8 @@ export default {
     box-shadow: var(--widget-shadow);
     margin: 15em;
 }
-
-.dashboard-body{
-  width:calc(100vh-30px);
-  height: 85%;
-  overflow:hidden;
+.side{
+  width: 20%;
 }
+
 </style>

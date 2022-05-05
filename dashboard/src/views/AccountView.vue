@@ -130,11 +130,6 @@ cursor: pointer;
 background: #ccc;
 }
 
-body {
-background: #f1eee9;
-font-family: "Roboto", sans-serif;
-}
-
 .main-content {
 padding-top: 100px;
 padding-bottom: 100px;
