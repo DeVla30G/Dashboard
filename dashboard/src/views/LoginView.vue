@@ -21,7 +21,6 @@
 <script>
 import axios from 'axios'
 import setAuth from '../Services/auth_service.js'
-
 export default {
   name: 'LoginView',
   components: {
@@ -92,7 +91,6 @@ justify-content: center;
 flex-direction: column;
 padding: 0 50px;
 text-align: center;
-
 }
 input {
 background-color: #eee;

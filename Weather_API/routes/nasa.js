@@ -26,6 +26,7 @@ app.get("/", async (req, res) => {
       });
     });
   console.log(response);
+  res.header('Access-Control-Allow-Origin', '*')
   res.json(response.url); 
 }); 
 

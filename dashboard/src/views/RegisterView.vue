@@ -17,10 +17,8 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   name: 'RegisterView',
-
   data () {
     return {
       firstname: '',
@@ -42,10 +40,8 @@ export default {
         password: this.password,
         password_confirmation: this.password_confirmation
       })
-
         .then((response) => {
           console.log(response)
-
           const result = response.data
           if (result != null) {
             alert('Account created!')
@@ -56,7 +52,6 @@ export default {
           console.log(error)
         })
     }
-
   }
 }
 
@@ -113,5 +108,4 @@ text-transform: uppercase;
 transition: transform 80ms ease-in;
     margin-top: 10px;
 }
-
 </style>
