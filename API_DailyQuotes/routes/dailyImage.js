@@ -9,7 +9,7 @@ console.log(today)*/
 
 
 app.get("/", (req, res) => {
-    let sql = `SELECT positive FROM daily ORDER BY RAND() LIMIT 1`;
+    let sql = `SELECT image FROM daily ORDER BY RAND() LIMIT 1`;
     
     con.query(sql, async (err, result, fields) => {
         if (err) return res.status(500).send(err);
@@ -20,7 +20,3 @@ app.get("/", (req, res) => {
   });
 
   module.exports = app;
-
-
-
-
