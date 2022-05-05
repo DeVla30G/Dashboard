@@ -3,13 +3,8 @@
         <NavBar />
 
         <h1>Profil</h1>
-        <img
-              :src="user.avatar"
-              alt="user__image"
-              class="user__image"
-            />
-        <h3>{{user.name}}</h3><!--v-if='login' -->
-         <h3>{{user.nickname}}</h3><!--v-if='login' -->
+        <h3>{{user.firstname}}</h3><!--v-if='login' -->
+         <h3>{{user.username}}</h3><!--v-if='login' -->
           <h3>{{user.email}}</h3><!--v-if='login' -->
           
           
@@ -18,7 +13,7 @@
 
 <script>
 const axios = require('axios');
-/*import NavBar from '../components/NavBar.vue';
+import NavBar from '../components/NavBar.vue';
 
 
 export default {
@@ -32,7 +27,7 @@ export default {
     },
   mounted(){
     this.token = localStorage.getItem('myToken');
-        axios.get('http://localhost:3000/users', {
+        axios.get('http://localhost:3000/user', {
           headers: {
             'Authorization': `Bearer ${this.token}` 
           }
@@ -42,7 +37,7 @@ export default {
         this.user = response.data
       })
   },
-}*/
+}
 </script>
 
 <style scoped>
