@@ -16,8 +16,8 @@ export default {
     }
   },
   created () {
-    fetch('http://localhost:3100/nasa', { method: 'GET', redirect: 'follow', mode: 'no-cors' })
-      .then(response => response.json())
+    fetch('http://localhost:3100/nasa', { method: 'GET', redirect: 'follow' })
+      .then((response) => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error))
   }
@@ -32,6 +32,5 @@ export default {
     height:15em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-
 }
 </style>

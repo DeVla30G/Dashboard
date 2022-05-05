@@ -24,7 +24,7 @@
 
 <script>
 import axios from 'axios'
-// import { apiUrl } from '../../config.json'
+
 export default {
   name: 'LoginView',
   data () {

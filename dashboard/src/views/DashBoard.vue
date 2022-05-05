@@ -6,7 +6,7 @@
   <side-bar/>
 </aside>
   <nasa-pic/> <nasa-info/>
-
+  <DailyQuotes/>
 </template>
 
 <script>
@@ -16,6 +16,7 @@ import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
+import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 
@@ -25,7 +26,8 @@ export default {
     NavBar,
     SideBar,
     nasaPic,
-    nasaInfo
+    nasaInfo,
+    DailyQuotes
   }
 }
 </script>
@@ -45,7 +47,7 @@ export default {
     margin: 15em;
 }
 .side{
-  width: 20%;
+  width: 15%;
 }
 
 </style>

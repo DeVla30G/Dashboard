@@ -11,22 +11,16 @@ export default {
   name: 'nasaInfo',
   data () {
     return {
-      text: []
+      text: ''
     }
   },
-  created () {
-    var requestOptions = {
-      method: 'GET',
-      redirect: 'follow',
-      mode: 'no-cors'
-    }
-
-    fetch('http://localhost:3100/nasa', requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error))
+  async  created () {
+    const response = await fetch('http://localhost:3100/nasa', { method: 'GET', redirect: 'follow' })
+    const text = await response.json()
+    this.text = response.text
   }
 }
+
 </script>
 
 <style scoped>

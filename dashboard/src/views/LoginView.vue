@@ -1,52 +1,51 @@
 <template>
-<div>
-<div class="form-container">
+<div class="form-container sign-in-container">
 <form >
-<h1> Create an Account</h1>
-<input v-model="firstname" type="text" placeholder="Firstname" required/><br>
-<input v-model="lastname" type="text" placeholder="Lastname" required/><br>
-<input v-model="username" type="text" placeholder="Choose a Username" required/><br>
-<input v-model="email" type="email" placeholder="Email" required/><br>
-<input v-model="password" type="password" placeholder="Password" required/><br>
-<input v-model="password_confirmation" type="password" placeholder="Confirm your Password" required/><br>
-<button @click="signup">Sign Up</button>
+<h1>Login</h1>
+<span></span>
+<input v-model="email" type="text" placeholder="Email" required/>
+<input v-model="password" type="password" placeholder="Password" required/>
+<button @click="login">Sign In</button><br>
+<br>
+<a href="">Forgot your password?</a>
 </form>
-</div>
+<hr>
+<p>Not registered yet ? Please sign up :</p>
+
+<button class="ghost" id="signUp" @click="goRegister()">Sign Up</button>
+<br>
+<button class="ghost" id="signUp" @click="goHome()">Home</button>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+import setAuth from '../Services/auth_service.js'
 export default {
-  name: 'RegisterView',
+  name: 'LoginView',
+  components: {
+  },
   data () {
     return {
-      firstname: '',
-      lastname: '',
-      username: '',
       email: '',
       password: '',
-      password_confirmation: ''
+      user: ''
     }
   },
   methods: {
-    async signup (event) {
+    login (event) {
       event.preventDefault()
-      axios.post('http://localhost:3000/register', {
-        firstname: this.firstname,
-        lastname: this.lastname,
-        username: this.username,
+      axios.post('http://localhost:3000/login', {
         email: this.email,
-        password: this.password,
-        password_confirmation: this.password_confirmation
+        password: this.password
       })
         .then((response) => {
-          console.log(response)
-          const result = response.data
-          if (result != null) {
-            alert('Account created!')
-            this.$router.push('/login')
-          }
+          console.log(response.data.user)
+          console.log(response.data.access_token)
+          const token = response.data.access_token
+          localStorage.setItem('myToken', token)
+          setAuth(token)
+          this.$router.push('/account')
         })
         .catch((error) => {
           console.log(error)
@@ -57,7 +56,7 @@ export default {
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&display=swap');
-h1 {
+h1,p {
 text-align: center;
 font-family: 'Pacifico', cursive;
 font-size: 30px;
@@ -73,13 +72,13 @@ background-image: linear-gradient(to bottom right, rgb(173, 80, 154),rgb(0 184 2
 border-radius: 10px;
 box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
 overflow: hidden;
-width: 800px;
+width: 600px;
 max-width: 100%;
 min-height: 900px;
    display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
+    margin-top: 100px;
     display: flex;
 align-items: center;
 justify-content: center;
