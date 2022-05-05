@@ -1,40 +1,75 @@
 <template>
-
 <div class="col-md-6">
-        <div class="card" >
+        <div class="card">
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
             <li>Your Daily Quote</li>
           </ul>
-          <p>{{quotes.positive}}</p>
+          <p>{{positives.positive}}</p>
+          <button v-on:click="newDaily">New</button>
         </div>
-      </div>
+        <div class="card" >
+          <ul class="list-inline">
+            <li><img src="" alt="" /></li>
+            <li>Your Daily Challenge</li>
+          </ul>
+          <p>{{challenge}}</p>
+          <button v-on:click="newChallenge">New</button>
+        </div>
+         <div class="card" >
+          <ul class="list-inline">
+            <li><img src="" alt="" /></li>
+            <li>Your Daily Image</li>
+          </ul>
+          <p>{{image}}</p>
+          <button v-on:click="newImage">New</button>
+        </div>
+</div>
 
 </template>
 
 <script>
 import axios from 'axios'
 // import SideBar from '@/components/SideBar.vue'
-import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
+// import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 
 export default {
   name: 'AccountView',
   components: [
-    DailyQuotes
   ],
 
   data () {
     return {
-      quotes: [
-        { positive: '' }
-      ]
+      positives: [],
+      challenge: '',
+      image: ''
     }
   },
   mounted () {
     axios
       .get('http://localhost:3030/daily')
       .then((response) => {
-        this.quotes = response.data
+        this.positives = JSON.stringify(response.data)
+        console.log(this.positives)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    axios
+      .get('http://localhost:3030/challenge')
+      .then((response) => {
+        this.challenge = JSON.stringify(response.data)
+        console.log(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+
+    axios
+      .get('http://localhost:3030/dailyImage')
+      .then((response) => {
+        this.image = JSON.stringify(response.data)
         console.log(response.data)
       })
       .catch((err) => {
@@ -42,7 +77,39 @@ export default {
       })
   },
   methods: {
-
+    newDaily () {
+      axios
+        .get('http://localhost:3030/daily')
+        .then((response) => {
+          this.positive = response.data
+          console.log(response.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    newChallenge () {
+      axios
+        .get('http://localhost:3030/challenge')
+        .then((response) => {
+          this.challenge = response.data
+          console.log(response.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    newImage () {
+      axios
+        .get('http://localhost:3030/dailyImage')
+        .then((response) => {
+          this.image = response.data
+          console.log(response.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
   }
 }
 

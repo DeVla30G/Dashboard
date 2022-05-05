@@ -43,9 +43,9 @@ export default {
       })
         .then((response) => {
           console.log(response.data.user)
-          console.log(response.data.access_token)
+          console.log(response.data.jwt)
 
-          const token = response.data.access_token
+          const token = response.data.jwt
           localStorage.setItem('myToken', token)
 
           setAuth(token)

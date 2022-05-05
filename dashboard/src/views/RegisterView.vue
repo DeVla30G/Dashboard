@@ -45,7 +45,6 @@ export default {
 
         .then((response) => {
           console.log(response)
-
           const result = response.data
           if (result != null) {
             alert('Account created!')
