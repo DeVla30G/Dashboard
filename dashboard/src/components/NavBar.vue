@@ -18,8 +18,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link style="text-decoration: none" :to="'/'"
-              ><a class="nav-link" href="#">Dashboard</a></router-link
+<router-link style="text-decoration: none" :to="'/'"><a class="nav-link" href="#">Dashboard</a></router-link
             >
           </li>
           <li class="nav-item"></li>
@@ -86,7 +85,7 @@
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-<!--<router-link style="text-decoration: none" :to="{name:'/AboutView', params: {id: user.id}}"><a class="dropdown-item" href="#">Profil</a></router-link>-->
+<!--<router-link style="text-decoration: none" :to="{name:'/about', params: {id: user.id}}"><a class="dropdown-item" href="#">Profil</a></router-link>-->
 <router-link style="text-decoration: none" :to="'/AboutView'"><a class="dropdown-item" href="#">Profil</a></router-link>
             </li>
             <li v-if="user.is_admin == 1">
