@@ -19,21 +19,11 @@
                  <img class="sidebarIcon" src="#"/> <a href="#">NASA pictures</a>
               </li>
             </ul>
-              <h3 class="sidebarTitle">
-                Panel Board
-              </h3>
-            <ul class="sidebarList">
-              <li class="sidebartListItem">
-                 <img class="sidebarIcon" /> <a href="/users">Users</a>
-              </li>
-              <li class="sidebartListItem">
-                <img class="sidebarIcon" src="#"/><a href="#"></a>
-              </li>
-            </ul>
          </div>
        </div>
     </div>
 </template>
+
 <script>
 
 export default {
@@ -46,7 +36,7 @@ export default {
     flex: 1;
     width:15%;
     height: calc(100vh - 50px);
-    background-color: rgb(35, 4, 145);
+    background-color: rgb(210, 208, 218);
     position: sticky;
     top: 50px;
 }

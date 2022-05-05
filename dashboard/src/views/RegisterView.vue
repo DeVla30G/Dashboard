@@ -2,30 +2,25 @@
 <div>
 <div class="form-container">
 <form >
-<img alt="Vue logo" src="#">
 <h1> Create an Account</h1>
-<input v-model="firstname" type="text" placeholder="Name" required/><br>
-<input v-model="lastname" type="text" placeholder="Surname" required/><br>
-<input v-model="email" type="email" placeholder="Email" required/><br>
+<input v-model="firstname" type="text" placeholder="Firstname" required/><br>
+<input v-model="lastname" type="text" placeholder="Lastname" required/><br>
 <input v-model="username" type="text" placeholder="Choose a Username" required/><br>
+<input v-model="email" type="email" placeholder="Email" required/><br>
 <input v-model="password" type="password" placeholder="Password" required/><br>
 <input v-model="password_confirmation" type="password" placeholder="Confirm your Password" required/><br>
 <button @click="createAccount()">Sign Up</button>
 </form>
-<button-global/>
 </div>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
-import ButtonGlobal from '@/components/ButtonGlobal.vue'
-// import { apiUrl } from '../../config.json'
+
 export default {
   name: 'RegisterView',
-  components: {
-    ButtonGlobal
-  },
+
   data () {
     return {
       firstname: '',
@@ -33,32 +28,23 @@ export default {
       username: '',
       email: '',
       password: '',
-      password_confirmation: '',
-      newuser: [{
-        firstname: '',
-        lastname: '',
-        username: '',
-        email: '',
-        password: ''
-      }]
+      password_confirmation: ''
     }
   },
   methods: {
     validateEmail (email) {
       return String(email)
         .toLowerCase()
-        .match(
+        .mtch(
           /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         )
     },
-    createAccountTest () {
-      this.$router.push('/account')
-    },
     createAccount () {
       const newuser = {
-        name: this.firstname,
-        surname: this.lastname,
+        name: this.name,
+        surname: this.surname,
         username: this.username,
+        birth_date: this.birth_date,
         email: this.email,
         password: this.password
       }
@@ -74,13 +60,11 @@ export default {
         })
         .catch((error) => {
           const code = error.response.status
-          code === 403
-            ? (this.errorMessage = 'You should be 13 years old to use Yowl')
-            : code === 409
-              ? (this.errorMessage = 'This User already exist')
-              : code === 400
-                ? (this.errorMessage = 'Empty field !')
-                : (this.errorMessage = 'There was an error')
+          code === 409
+            ? (this.errorMessage = 'This User already exist')
+            : code === 400
+              ? (this.errorMessage = 'Empty field !')
+              : (this.errorMessage = 'There was an error')
           console.log(error.response.status)
           console.log('There was an error!', error)
           alert(this.errorMessage)
@@ -90,6 +74,7 @@ export default {
   }
 
 }
+
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&display=swap');

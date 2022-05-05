@@ -1,10 +1,10 @@
 <template>
+<div>
 <b-card-header class="header">  <img src="../assets/Dash_logo.png" alt="logo app"/></b-card-header>
 <side-bar></side-bar>
   <h1>Dashboard</h1>
-<<<<<<< HEAD
   <div></div>
-</header>
+
 <SideBar></SideBar>
 <button-global></button-global>
 
@@ -37,10 +37,9 @@
     </section>
 </div>
 <h2>Users data</h2>
-=======
->>>>>>> 4e1cebb44f436f8a273f3449e69e308282b8930d
 
 <button-global></button-global>
+</div>
 </template>
 
 <script>
@@ -62,7 +61,7 @@ export default {
 <style scoped>
 
 .header{
-  background-color:rgb(35, 4, 145);
+  background-color:rgb(210, 208, 218);
   width:100%;
   height: auto;
   padding:1em;
@@ -86,7 +85,7 @@ export default {
     width:40%;
     height:10%;
     padding: 15px 20px;
-    background: rgb(202, 241, 233);
+    background: rgb(210, 208, 218);
     border-radius: 0.45rem;
     -webkit-box-shadow: var(--widget-shadow);
     box-shadow: var(--widget-shadow);

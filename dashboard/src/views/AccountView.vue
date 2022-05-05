@@ -1,23 +1,71 @@
 <template>
+
 <div>
-<div class="topnav">
+<b-card-header class="header">  <img src="../assets/Dash_logo.png" alt="logo app"/></b-card-header>
+<side-bar></side-bar>
+  <h1>Dashboard</h1>
+  <div></div>
+
+<SideBar/>
+
+ <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <ul class="list-inline">
+            <li><img src="" alt="" /></li>
+            <li>Sunny</li>
+          </ul>
+          <h1>36°</h1>
+          <div class="date">
+            <h3>23:56</h3>
+            <p>MON 08/23</p>
+          </div>
+          <p class="city">Paris</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" >
+          <ul class="list-inline">
+            <li><img src="" alt="" /></li>
+            <li>Sunny</li>
+          </ul>
+          <h1>27°</h1>
+          <div class="date">
+            <h3>15:56</h3>
+            <p>MON 08/23</p>
+          </div>
+          <p class="city">Londres</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card" >
+          <ul class="list-inline">
+            <li><img src="" alt="" /></li>
+            <li>Daily Quote</li>
+          </ul>
+          <p>"Aujourd'hui est le plus beau jour de ma vie car c'est le jour que je vis."</p>
+        </div>
+      </div>
+    </div>
+ </div>
 </div>
-</div>
+
 </template>
 
 <script>
 import axios from 'axios'
-// import { apiUrl } from '../../config.json'
+import SideBar from '@/components/SideBar.vue'
 
 export default {
   name: 'AccountView',
-  props: [
-    'com'
+  components: [
+    SideBar
   ],
   data () {
     return {
-      me: JSON.parse(sessionStorage.getItem('user')),
-      showpost: false
+      me: JSON.parse(localStorage.getItem('user'))
+
     }
   },
   async mounted () {
@@ -33,7 +81,7 @@ export default {
   },
   methods: {
 
-    AddComment () {
+    AddWidget () {
       axios
         .post('http://localhost:3000/comments',
           {
@@ -46,23 +94,15 @@ export default {
     },
 
     logout () {
-      sessionStorage.removeItem('user')
-      sessionStorage.removeItem('token')
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
       this.that.$router.push('/')
     },
     goProfile () {
       this.$router.push('/profile')
-    },
-    NewPost () {
-      this.showpost = true
-      console.log(this.showpost)
-    },
-    goAdmin () {
-      this.$router.push('/')
     }
 
   }
-
 }
 
 </script>
@@ -143,75 +183,46 @@ margin-right: auto;
 margin-left: auto;
 }
 
-.post-block {
-background: #fff;
-padding: 25px;
-margin-bottom: 25px;
-border-radius: 5px;
-overflow: hidden;
-box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
-transition: all 0.2s;
-}
-.post-block img.author-img {
-height: 100px;
-width: 100px;
-border-radius: 45px;
-}
-.post-block img.author-img.author-img--small {
-height: 100px;
-width: 100px;
-}
-.post-block__content img,
-.post-block__content video,
-.post-block__content audio {
-max-width: 100%;
-border-radius: 5px;
-}
-.post-block .comment-view-box__comment {
-border-radius: 5px;
-background: #f5f5f5;
-padding: 15px;
-}
-.btn-primary {
-color: #fff;
-background-color: #007bff;
-border-color: #007bff;
-height: 25px;
-}
-img {
-padding: 10px 10px 10px 10px;
-vertical-align: middle;
-border-style: none;
-}
-
-.mr-2, .mx-2, .text-dark {
-margin-right: .5rem!important;
-float:left;
-}
-
-i{
-    float: right;
-}
-
-.form-control{
-    width:90%;
-    height: 20px;
-    border-radius: 5px;
-    float: left;
-}
-.rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-}
-.rating > span {
-  display: inline-block;
+.card{
+  height: 100px;
+  margin-bottom: 80px;
+  width: 350px;
   position: relative;
-  width: 1.1em;
+  background-color: pink;
+  border-radius: 20px;
+  padding: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  margin-top: 80px;
+
 }
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
+h1{
+  color:white;
+  position: absolute;
+  left: 10px;
+  bottom: 0px;
+}
+.date{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: right;
+    color: white;
+  }
+.city{
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+    color: white;
+}
+
+.list-inline{
+  margin-bottom: 0 !important;
+}
+
+h3{
+  margin: 0 !important;
 }
 
 </style>
