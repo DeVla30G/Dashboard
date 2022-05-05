@@ -16,6 +16,7 @@
     "core-js": "^3.8.3",
     "vue": "^3.2.33",
     "vue-router": "^4.0.3",
+    "vue-smart-widget": "^0.6.1",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

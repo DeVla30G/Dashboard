@@ -1,4 +1,5 @@
 <template>
+<div>
 <header>
   <NavBar />
 </header>
@@ -8,7 +9,7 @@
 <div class="dashboard_body" id="app">
   <nasa-pic/>
 </div>
-
+</div>
 </template>
 
 <script>
@@ -38,7 +39,7 @@ export default {
     width:20%;
     height:10%;
     padding: 15px 20px;
-    background: rgb(202, 241, 233);
+    background: rgb(210, 208, 218);
     border-radius: 0.45rem;
     -webkit-box-shadow: var(--widget-shadow);
     box-shadow: var(--widget-shadow);
