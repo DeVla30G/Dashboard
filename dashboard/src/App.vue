@@ -6,7 +6,7 @@
 
 <style>
 body{
-  background-image: url("../src/assets/triangles-background.webp");
+  background-color: grey;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
