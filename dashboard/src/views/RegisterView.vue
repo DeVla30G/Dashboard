@@ -41,10 +41,9 @@ export default {
     },
     createAccount () {
       const newuser = {
-        name: this.name,
-        surname: this.surname,
+        firstname: this.firtsname,
+        lastname: this.lastname,
         username: this.username,
-        birth_date: this.birth_date,
         email: this.email,
         password: this.password
       }

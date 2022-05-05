@@ -5,26 +5,35 @@
             <li><img src="" alt="" /></li>
             <li>Your Daily Quote</li>
           </ul>
-          <p></p>
+          <p>{{quotes}}</p>
         </div>
       </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  name: 'DailyQuotes'
-}
-async mounted () {
+  name: 'DailyQuotes',
+  props: [
+    'quot'
+  ],
+  data: () => {
+    return {
+      quotes: []
+    }
+  },
+  mounted () {
     axios
-      .get('http://localhost:3000/ ')
+      .get('http://localhost:3030/daily')
       .then((response) => {
-        this.posts = response.data
+        this.quotes = response.data
         console.log(response.data)
       })
       .catch((err) => {
         console.log(err)
       })
-  },
+  }
+}
 
 </script>
 
