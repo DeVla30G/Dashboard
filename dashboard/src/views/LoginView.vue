@@ -3,9 +3,9 @@
 <form >
 <h1>Login</h1>
 <span></span>
-<input v-model="identifier" type="text" placeholder="Email" required/>
+<input v-model="email" type="text" placeholder="Email" required/>
 <input v-model="password" type="password" placeholder="Password" required/>
-<button @click="login()">Sign In</button><br>
+<button @click="login">Sign In</button><br>
 <br>
 <a href="">Forgot your password?</a>
 </form>
@@ -20,6 +20,7 @@
 
 <script>
 import axios from 'axios'
+import setAuth from '../Services/auth_service.js'
 
 export default {
   name: 'LoginView',
@@ -27,39 +28,32 @@ export default {
   },
   data () {
     return {
-      identifier: '',
+      email: '',
       password: '',
-      token: '',
-      errormessage: '',
-      GoTo: ''
+      user: ''
     }
   },
   methods: {
-    goRegister () {
-      this.$router.push('/register')
-    },
-    goHome () {
-      this.$router.push('/')
-    },
-    login () {
-      const credentials = {
-        identifier: this.identifier,
+
+    login (event) {
+      event.preventDefault()
+      axios.post('http://localhost:3000/login', {
+        email: this.email,
         password: this.password
-      }
-      axios
-        .post('http://localhost:3000/login', credentials)
-        .then((result) => {
-          console.log(result)
-          localStorage.setItem('token', result.data.jwt)
-          localStorage.setItem('user', JSON.stringify(result.data))
+      })
+        .then((response) => {
+          console.log(response.data.user)
+          console.log(response.data.access_token)
+
+          const token = response.data.access_token
+          localStorage.setItem('myToken', token)
+
+          setAuth(token)
+
           this.$router.push('/account')
         })
         .catch((error) => {
-          const code = error.response.status
-          code === 403
-            ? (this.errorMessage = 'Wrong credentials')
-            : (this.errorMessage = 'There was an error')
-          alert(this.errorMessage)
+          console.log(error)
         })
     }
   }

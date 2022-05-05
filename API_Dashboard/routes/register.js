@@ -2,7 +2,7 @@ var express = require('express');
 var app = express.Router();
 
 const jwt = require("jsonwebtoken");
-
+const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const { default: axios } = require('axios');
@@ -184,17 +184,7 @@ module.exports = app;
                             console.log(response);
                             res.status(200).send(response.data);
                             return;
-                        }
-
-                        if (result) {
-                            axios.post('http://localhost:3000/register', {
-                                identifier: body.email,
-                                password: body.password
-                            }).then(response => {
-                                console.log(response);
-                                res.status(200).send(response.data);
-                                return;
-                            })
+                        })
                             .catch(err => {
                                 console.log(err);
                                 res.status(500).send(err);

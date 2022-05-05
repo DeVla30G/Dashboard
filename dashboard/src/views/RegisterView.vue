@@ -9,7 +9,7 @@
 <input v-model="email" type="email" placeholder="Email" required/><br>
 <input v-model="password" type="password" placeholder="Password" required/><br>
 <input v-model="password_confirmation" type="password" placeholder="Confirm your Password" required/><br>
-<button @click="createAccount()">Sign Up</button>
+<button @click="signup">Sign Up</button>
 </form>
 </div>
 </div>
@@ -32,46 +32,32 @@ export default {
     }
   },
   methods: {
-    validateEmail (email) {
-      return String(email)
-        .toLowerCase()
-        .mtch(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        )
-    },
-    createAccount () {
-      const newuser = {
-        firstname: this.firtsname,
+    async signup (event) {
+      event.preventDefault()
+      axios.post('http://localhost:3000/register', {
+        firstname: this.firstname,
         lastname: this.lastname,
         username: this.username,
         email: this.email,
-        password: this.password
-      }
-      axios
-        .post('http://localhost:3000/register', newuser)
-        .then((result) => {
-          this.bool = true
-          console.log(result)
-          sessionStorage.setItem('token', result.data.jwt)
-          sessionStorage.setItem('user', JSON.stringify(result.data))
-          this.$router.push('/account')
-          return true
+        password: this.password,
+        password_confirmation: this.password_confirmation
+      })
+
+        .then((response) => {
+          console.log(response)
+
+          const result = response.data
+          if (result != null) {
+            alert('Account created!')
+            this.$router.push('/login')
+          }
         })
         .catch((error) => {
-          const code = error.response.status
-          code === 409
-            ? (this.errorMessage = 'This User already exist')
-            : code === 400
-              ? (this.errorMessage = 'Empty field !')
-              : (this.errorMessage = 'There was an error')
-          console.log(error.response.status)
-          console.log('There was an error!', error)
-          alert(this.errorMessage)
-          return false
+          console.log(error)
         })
     }
-  }
 
+  }
 }
 
 </script>

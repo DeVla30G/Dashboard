@@ -20,7 +20,7 @@ const bcrypt = require("bcrypt");
  *       - in: body
  *         name: credentials
  *         description: The credentials to be used to login
- *         schema:  
+ *         schema:
  *           type: object
  *           required:
  *             - email
