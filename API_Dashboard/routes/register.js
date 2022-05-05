@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express.Router();
-const multer = require('multer');
-const path = require('path');
+
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
@@ -17,6 +16,8 @@ const validateEmail = (email) => {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
 };
+
+// Get age function
 
 
 /**
@@ -66,20 +67,7 @@ const validateEmail = (email) => {
  *       409:
  *         description: Conflict
  */
-
-var storage = multer.diskStorage({
-    destination: (req, file, callBack) => {
-        callBack(null, './images/')     // './images/' directory name where save the file
-    },
-    filename: (req, file, callBack) => {
-        callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-})
-var upload = multer({
-    storage: storage
-});
-app.post("/", upload.single('avatar'), (req, res) => {
-    console.log(req.file.filename)
+app.post("/", (req, res) => {
     let body = req.body;
 
     // Check if body is complete
@@ -88,40 +76,63 @@ app.post("/", upload.single('avatar'), (req, res) => {
         // Check email
         if (validateEmail(body.email)) {
 
+            // Check if > 13yo
+            
 
+                // Hashing password
+                bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
+                    const firstname = req.body.firstname;
+                    const lastname = req.body.lastname;
+                    const username = req.body.username;
+                    const email = req.body.email;
+                    const password = hash;
+                    const role = 0;
 
-            // Hashing password
-            bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
-                const firstname = req.body.firstname;
-                const lastname = req.body.lastname;
-                const username = req.body.username;
-                const email = req.body.email;
-                const password = hash;
-                const avatar = req.file.filename;
-                const role = 0;
-
-                con.query(`INSERT INTO users (firstname, lastname, username, email, password, avatar, role, create_time, update_time) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${avatar}", "${role}", now(), now())`, async (err, result, fields) => {
-                    if (err) {
-                        if (err.code == "ER_DUP_ENTRY") {
-                            res.status(409).send({ msg: "User already exists." });
+                    con.query(`INSERT INTO users (firstname, lastname, username, email, password, role, create_time, update_time) VALUES ("${firstname}", "${lastname}", "${username}", "${email}", "${password}", "${role}", now(), now())`, async (err, result, fields) => {
+                        if (err) {
+                            if (err.code == "ER_DUP_ENTRY") {
+                                res.status(409).send({msg:"User already exists."});
+                                return;
+                            }
+                            res.status(500).send(err);
                             return;
                         }
-                        res.status(500).send(err);
-                        return;
-                    }
 
-                    if (result) {
+                        if (result) {
+                            axios.post('http://localhost:3000/login', {
+                                email: body.email,
+                                password: body.password
+                            }).then(response => {
+                                console.log(response);
+                                res.status(200).send(response.data);
+                                return;
+                            })
+                            .catch(err => {
+                                console.log(err);
+                                res.status(500).send(err);
+                                return;
+                            })
+                        }
+                    })
 
-                        let transporter = nodemailer.createTransport({
-                            host: "smtp.mailtrap.io",
-                            port: 2525,
-                            auth: {
-                                user: "ba8b8d3ae15c5f",
-                                pass: "98cfbacc21dab2"
-                            }
-                        })
-        
-                        let link = axios.post('http://localhost:3000/login', {
+                });
+
+
+        } else {
+            res.status(400).send({msg:"Please verify you entered a correct email."});
+            return;
+        }
+
+    } else {
+        res.status(400).send({msg:"Please verify your request includes a username, an email, a password"});
+        return;
+    }
+})
+
+module.exports = app;
+
+
+/* let link = axios.post('http://localhost:3000/login', {
                             email: body.email,
                             password: body.password
                         }).then(response => {
@@ -134,7 +145,7 @@ app.post("/", upload.single('avatar'), (req, res) => {
                                 res.status(500).send(err);
                                 return;
                             })
-        
+
                         const options = {
                             from: "fanny@mailtrap.com",
                             to: email,
@@ -159,35 +170,15 @@ app.post("/", upload.single('avatar'), (req, res) => {
                               
                           </body>`
                         }
-        
+
                         transporter.sendMail(options, (err, info) => {
                             if (err) {
                                 console.log(err);
                                 res.status(500).send(err);
                                 return;
                             }
-        
+
                             console.log(info);
-                            res.status(201).send({msg: "The mail was successfully sent (if you can't see it, it is probably in your spams)."});
+                            res.status(201).send({ msg: "The mail was successfully sent (if you can't see it, it is probably in your spams)." });
                             return
-                        })
-
-                    }
-                })
-
-            });
-
-
-        } else {
-            res.status(400).send({ msg: "Please verify you entered a correct email." });
-            return;
-        }
-
-    } else {
-        res.status(400).send({ msg: "Please verify your request includes a username, an email, a password" });
-        return;
-    }
-})
-
-module.exports = app;
-
+                        })*/
