@@ -7,21 +7,6 @@ const axios = require("axios");
 
 /*let today = new Date().toLocaleDateString()
 console.log(today)*/
-/**
- * @swagger
- * /daily:
- *   get:
- *     tags:
- *       - daily
- *     description: Gets all daily
- *     produces:
- *       - application/json
- *       - text/plain
- *     responses:
- *       200:
- *         description: All daily
- */
-// Get all daily
 
 app.get("/", (req, res) => {
     let sql = `SELECT positive FROM daily ORDER BY RAND() LIMIT 1`;

@@ -4,25 +4,28 @@
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
             <li>Your Daily Quote</li>
-          </ul>
-          <p>{{positives.positive}}</p>
+            <p >{{positives}}</p>
           <button v-on:click="newDaily">New</button>
+          </ul>
+
         </div>
         <div class="card" >
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
             <li>Your Daily Challenge</li>
-          </ul>
-          <p>{{challenge}}</p>
+            <p>{{challenges}}</p>
           <button v-on:click="newChallenge">New</button>
+          </ul>
+
         </div>
          <div class="card" >
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
             <li>Your Daily Image</li>
-          </ul>
-          <p>{{image}}</p>
+            <img :src= images />
           <button v-on:click="newImage">New</button>
+          </ul>
+
         </div>
 </div>
 
@@ -40,16 +43,16 @@ export default {
 
   data () {
     return {
-      positives: [],
-      challenge: '',
-      image: ''
+      positives: '',
+      challenges: '',
+      images: ''
     }
   },
   mounted () {
     axios
       .get('http://localhost:3030/daily')
       .then((response) => {
-        this.positives = JSON.stringify(response.data)
+        this.positives = response.data[0].positive
         console.log(this.positives)
       })
       .catch((err) => {
@@ -59,7 +62,7 @@ export default {
     axios
       .get('http://localhost:3030/challenge')
       .then((response) => {
-        this.challenge = JSON.stringify(response.data)
+        this.challenges = response.data[0].challenge
         console.log(response.data)
       })
       .catch((err) => {
@@ -69,7 +72,7 @@ export default {
     axios
       .get('http://localhost:3030/dailyImage')
       .then((response) => {
-        this.image = JSON.stringify(response.data)
+        this.images = response.data[0].image
         console.log(response.data)
       })
       .catch((err) => {
@@ -81,7 +84,7 @@ export default {
       axios
         .get('http://localhost:3030/daily')
         .then((response) => {
-          this.positive = response.data
+          this.positives = response.data[0].positive
           console.log(response.data)
         })
         .catch((err) => {
@@ -92,7 +95,7 @@ export default {
       axios
         .get('http://localhost:3030/challenge')
         .then((response) => {
-          this.challenge = response.data
+          this.challenges = response.data[0].challenge
           console.log(response.data)
         })
         .catch((err) => {
@@ -103,7 +106,7 @@ export default {
       axios
         .get('http://localhost:3030/dailyImage')
         .then((response) => {
-          this.image = response.data
+          this.images = response.data[0].image
           console.log(response.data)
         })
         .catch((err) => {
@@ -196,13 +199,14 @@ margin-left: auto;
   margin-bottom: 80px;
   width: 350px;
   position: relative;
-  background-color: pink;
+  background-color: rgb(243, 210, 215);
   border-radius: 20px;
   padding: 10px;
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
   margin-top: 80px;
+  height: 150px;
 
 }
 h1{
@@ -211,20 +215,19 @@ h1{
   left: 10px;
   bottom: 0px;
 }
-.date{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    text-align: right;
-    color: white;
-  }
-.city{
-    position: absolute;
-    right: 10px;
-    bottom: 0px;
-    color: white;
-}
+button {
+border-radius: 20px;
+border: 1px solid rgb(100, 77, 228);
+background-color: rgb(100, 77, 228);
+color: #FFFFFF;
+font-size: 12px;
+font-weight: bold;
+padding: 12px 45px;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: transform 80ms ease-in;
 
+}
 .list-inline{
   margin-bottom: 0 !important;
 }
