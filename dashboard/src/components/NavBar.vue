@@ -43,18 +43,17 @@
           </li>
         </ul>
         <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
-          {{ user.name }} </p>
+       Vladi </p>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
-          <a
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+        <p> Hello {{ user.email }} ! </p>
+          <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
             id="navbarDropdownMenuAvatar"
             role="button"
             data-mdb-toggle="dropdown"
             aria-expanded="false">
-            <img :src="user.avatar" class="rounded-circle" height="25" alt="User Image" loading="lazy"
-              style="border-radius: 60%; height: 30px; width: 30px"/>
+            <img src="../assets/avatarF.jpg" class="rounded-circle" height="35" alt="User Image" style="border-radius: 50%; height: 4em; width: 4em"/>
           </a>
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
@@ -123,6 +122,7 @@ export default {
    display: flex;
   height: 10%;
   justify-content: space-between;
+  color: bisque;
 }
 .navbar img{
   margin:1em;
@@ -135,6 +135,6 @@ export default {
 
 ul{
  list-style: none;
-  text-decoration: none;
+text-decoration: none;
 }
 </style>

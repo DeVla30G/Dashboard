@@ -1,8 +1,8 @@
 <template>
-<div id="app">
 <header>
   <nav-bar />
 </header>
+<div id="app">
 <aside class="side">
   <side-bar/>
 </aside>
@@ -19,6 +19,7 @@ import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
+
 export default {
   name: 'DashBoard',
   components: {
@@ -28,25 +29,15 @@ export default {
     nasaInfo,
     DailyQuotes,
     WeatherView
+  }, 
+ mounted() {
+    if (localStorage.user) {
+      this.user = localStorage.user;
+    }
   }
 }
 </script>
-,
-    WaetherView
+
 <style scoped>
-.widget {
-    display: block;
-    position: relative;
-    width:20%;
-    height:10%;
-    padding: 15px 20px;
-    background: rgb(202, 241, 233);
-    border-radius: 0.45rem;
-    -webkit-box-shadow: var(--widget-shadow);
-    box-shadow: var(--widget-shadow);
-    margin: 15em;
-}
-.side{
-  width: 15%;
-}
+
 </style>

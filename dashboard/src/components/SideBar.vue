@@ -79,9 +79,6 @@ a{
    width: 80%;
    justify-content: center;
 }
-.sidebarIcon{
-   margin-right: 5px;
-}
 a{
    color:bisque;
    text-decoration: none;

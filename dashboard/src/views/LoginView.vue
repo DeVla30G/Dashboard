@@ -1,4 +1,5 @@
 <template>
+<nav-bar/>
 <div class="form-container sign-in-container">
 <form >
 <h1>Login</h1>
@@ -21,9 +22,12 @@
 <script>
 import axios from 'axios'
 import setAuth from '../Services/auth_service.js'
+import NavBar from '@/components/NavBar.vue'
+
 export default {
   name: 'LoginView',
   components: {
+    NavBar
   },
   data () {
     return {
@@ -55,10 +59,9 @@ export default {
 }
 </script>
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&display=swap');
+
 h1,p {
 text-align: center;
-font-family: 'Pacifico', cursive;
 font-size: 30px;
 }
 img{
@@ -68,9 +71,9 @@ height:280px;
 .form-container {
 height: 100%;
 transition: all 0.6s ease-in-out;
-background-image: linear-gradient(to bottom right, rgb(173, 80, 154),rgb(0 184 255 / 68%));
+background-image: linear-gradient(to bottom right, rgb(75, 74, 74),rgba(242, 246, 248, 0.68));
 border-radius: 10px;
-box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
+box-shadow: 0 14px 28px rgba(50, 47, 47, 0.25),0 10px 10px rgba(0,0,0,0.22);
 overflow: hidden;
 width: 600px;
 max-width: 100%;
@@ -96,7 +99,7 @@ width: 100%;
 button {
 border-radius: 20px;
 border: 1px solid rgb(85, 21, 3);
-background-color: rgb(228, 77, 178);
+background-color: rgb(9, 69, 223);
 color: #FFFFFF;
 font-size: 12px;
 font-weight: bold;

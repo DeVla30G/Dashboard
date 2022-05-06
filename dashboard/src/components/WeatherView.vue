@@ -1,15 +1,49 @@
 <template>
+
 <div class="weather_wrapper">
-    <h4> What's on your picture today: {{ meteo.city }} </h4>
-    <div class="display_info"> </div>
+    <h4> </h4>
+    <div class="display_info">
+    <table>
+        <thead>
+            <tr>
+            <th colspan="4">Next few days</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="next_date">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+             <tr class="weather_icon">
+                <td><skycon condition="clear-day" /></td>
+                <td><skycon condition="partly-cloudy-day" /></td>
+                <td><skycon condition="rain" /></td>
+                <td><skycon condition="wind" /></td>
+            </tr>
+             <tr class="temp">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
     <h5>Date </h5>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
+import skycon from 'vue-skycons'
+
 export default {
   name: 'WeatherView',
+  components: {
+    skycon
+  },
   data () {
     return {
       meteo: []
