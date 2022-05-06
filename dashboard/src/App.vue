@@ -1,5 +1,5 @@
 <template>
-    <router-view></router-view>
+  <router-view/>
 </template>
 
 <style>
@@ -8,5 +8,4 @@
   background-color: rgb(158, 154, 154);
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
-
 </style>

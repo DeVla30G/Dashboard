@@ -1,13 +1,15 @@
 <template>
+<div id="app">
 <header>
-  <NavBar />
+  <nav-bar />
 </header>
 <aside class="side">
   <side-bar/>
 </aside>
   <nasa-pic/> <nasa-info/>
-  <DailyQuotes/>
-  <waether-view/>
+  <daily-quotes/>
+  <weather-view/>
+  </div>
 </template>
 
 <script>
@@ -16,8 +18,7 @@ import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
-import WaetherView from '@/components/WeatherView.vue'
-
+import WeatherView from '@/components/WeatherView.vue'
 export default {
   name: 'DashBoard',
   components: {
@@ -26,14 +27,13 @@ export default {
     nasaPic,
     nasaInfo,
     DailyQuotes,
-    WaetherView
+    WeatherView
   }
 }
 </script>
 ,
     WaetherView
 <style scoped>
-
 .widget {
     display: block;
     position: relative;
@@ -49,5 +49,4 @@ export default {
 .side{
   width: 15%;
 }
-
 </style>

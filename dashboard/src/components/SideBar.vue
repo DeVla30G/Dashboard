@@ -34,7 +34,6 @@
     </div>
 </template>
 <script>
-
 export default {
   name: 'SideBar'
 }
@@ -49,30 +48,24 @@ export default {
     top:30px;
     position:sticky;
 }
-
 .sidebarWrapper{
     padding: 20px;
     color: #555;
 }
-
 a{
     color: black;
 }
-
 .sidebarMenu{
     margin-bottom: 10px;
 }
-
 .sidebarTitle{
     font-size: 13px;
     color: #555;
 }
-
 .sidebarList{
     list-style: none;
     padding: 5px;
 }
-
 .sidebartListItem{
     padding: 5px;
     cursor: pointer;
@@ -81,14 +74,11 @@ a{
     border-radius: 10px;
     margin-top: 10px;
 }
-
 .sidebartListItem.active, .sidebartListItem:hover {
    background-color: #92908a;
    width: 80%;
    justify-content: center;
-
 }
-
 .sidebarIcon{
    margin-right: 5px;
 }

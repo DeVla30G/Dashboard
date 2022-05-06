@@ -1,19 +1,18 @@
 <template>
-<div class="nasa_pic_wrapper">
-    <h4> What's on your picture today: {{ meteo.date }} </h4>
-    <div class="display_info"> {{ text.explanation }} </div>
-    <h5>Copyright: {{ text.copyright }} </h5>
+<div class="weather_wrapper">
+    <h4> What's on your picture today: {{ meteo.city }} </h4>
+    <div class="display_info"> </div>
+    <h5>Date </h5>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
-
 export default {
   name: 'WeatherView',
   data () {
     return {
-      meteo: ''
+      meteo: []
     }
   },
   async mounted () {
@@ -31,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-.nasa_pic_wrapper{
+.weather_wrapper{
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
     width:35em;

@@ -42,33 +42,6 @@
             <a class="nav-link" href="#">Login</a></router-link>
           </li>
         </ul>
-        <!-- Notifications -->
-        <!-- <div class="dropdown">
-        <a
-          class="text-reset me-3 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bell"></i>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div> -->
         <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
           {{ user.name }} </p>
         <!-- Avatar -->
@@ -147,6 +120,9 @@ export default {
 }
 .navbar{
   background-color: rgb(27, 22, 39);
+   display: flex;
+  height: 10%;
+  justify-content: space-between;
 }
 .navbar img{
   margin:1em;
@@ -155,5 +131,10 @@ export default {
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 800;
   font-size: 24px;
+}
+
+ul{
+ list-style: none;
+  text-decoration: none;
 }
 </style>

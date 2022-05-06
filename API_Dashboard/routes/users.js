@@ -167,11 +167,6 @@ app.get("/:id", (req, res) => {
 *      parameters:
 *       - in: path
 *         name: id
-*       - in: query
-*         name: role
-*         schema:
-*           type: bool
-*           enum: [0 => user, 1 => admin]
 *         required: true
 */
 

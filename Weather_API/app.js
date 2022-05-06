@@ -2,14 +2,14 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const searches = require('./routes/weather')
-const nasa = require('./routes/weather');
+const weather = require('./routes/weather');
 const cors = require("cors");
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 3600;
 
 // error handler
-app.use('/nasa', nasa);
+app.use('/weather', weather);
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.send('Hello World!')
   })
-app.route('/nasa')
+app.route('/weather')
 .get((req,res) => {})
 
 app.listen(port, err => {

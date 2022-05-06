@@ -20,7 +20,6 @@ import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
-
 export default {
   name: 'DashBoard',
   components: {
@@ -34,7 +33,6 @@ export default {
 </script>
 
 <style scoped>
-
 .widget {
     display: block;
     position: relative;

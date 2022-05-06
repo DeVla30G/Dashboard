@@ -1,9 +1,9 @@
 <template>
         <div class="card" >
-          <ul class="list-inline">
-            <li><img src="" alt="" /></li>
-            <li><img src="../../assets/zen-icon.png" alt="lotus"/> Your Daily Quote </li>
-          </ul>
+          <div class="list-inline">
+            <img src="../../assets/zen-icon.png" alt="lotus"/>
+            <h3>Your Daily Quote :</h3>
+          </div>
           <p>{{ quotes }}</p>
         </div>
 </template>
@@ -48,8 +48,14 @@ export default {
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
   margin-top: 80px;
 }
+.list-inline{
+    display:inline-flex;
+    text-decoration : underline;
+    text-underline-position: under;
+    margin:.5em;
+}
 img{
   border-radius: 50%;
+  margin: .5em;
 }
-
 </style>
