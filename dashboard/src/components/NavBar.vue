@@ -134,7 +134,7 @@ export default {
     logout () {
       axios.get('http://localhost:3000/users')
       localStorage.removeItem('myToken')
-      this.$router.push('/login')
+      this.$router.push('/')
     }
   }
 }
