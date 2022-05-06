@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
   res.json(response.url); 
 }); 
 
-app.get("/description", async (req, res) => {
+app.get("/all", async (req, res) => {
     console.log("/description endpoint called");
     const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
     const options = { 
@@ -45,7 +45,8 @@ app.get("/description", async (req, res) => {
         });
       });
     console.log(response);
-    res.json(response.explanation); 
+    res.header('Access-Control-Allow-Origin', '*')
+    res.json(response); 
   }); 
 
 module.exports = app;

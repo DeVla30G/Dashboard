@@ -2,7 +2,7 @@
         <div class="card" >
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
-            <li>Your Daily Quote</li>
+            <li><img src="../../assets/zen-icon.png" alt="lotus"/> Your Daily Quote </li>
           </ul>
           <p>{{ quotes }}</p>
         </div>
@@ -47,6 +47,9 @@ export default {
   background-repeat: no-repeat;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
   margin-top: 80px;
+}
+img{
+  border-radius: 50%;
 }
 
 </style>
