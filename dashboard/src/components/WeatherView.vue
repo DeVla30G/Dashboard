@@ -1,7 +1,7 @@
 <template>
 
 <div class="weather_wrapper">
-    <h4> </h4>
+    <p> {{ meteo }} </p>
     <div class="display_info">
     <table>
         <thead>
@@ -22,7 +22,13 @@
                 <td><skycon condition="rain" /></td>
                 <td><skycon condition="wind" /></td>
             </tr>
-             <tr class="temp">
+             <tr class="max-temp">
+                <td> <h3>16 &deg;</h3></td>
+                <td> <h3>19 &deg;</h3></td>
+                <td> <h3>20 &deg;</h3></td>
+                <td> <h3>22 &deg;</h3></td>
+            </tr>
+             <tr class="min-temp">
                 <td></td>
                 <td></td>
                 <td></td>
@@ -30,6 +36,9 @@
             </tr>
         </tbody>
     </table>
+    <div class="big_res">
+    <p @change="averageTemp"></p>
+    </div>
     </div>
     <h5>Date </h5>
 </div>
@@ -59,6 +68,12 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+  },
+  computed: {
+    // average temp/day
+    averageTemp () {
+      return (this.meteo.tmin + this.meteo.tmax) / 2
+    }
   }
 }
 </script>
@@ -69,10 +84,8 @@ export default {
     background-color: rgb(139, 139, 187);
     width:35em;
     height:25em;
-    margin-left:60em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-    margin-top:0;
 }
 .display_info{
   overflow:scroll;
@@ -87,4 +100,5 @@ export default {
 h4, h5{
 margin:.5em;
 }
+
 </style>

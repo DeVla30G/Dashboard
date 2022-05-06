@@ -1,8 +1,10 @@
 <template>
 <div class="nasa_pic_wrapper" >
-    <h2> {{ url.date }} </h2>
+    <div class="title">
+    <h2> {{ url.title }} </h2>
+    </div>
     <div class="display-pic">
-    <img v-bind:src= url alt="nasa picture of the day"/>
+    <img v-bind:src= url.url alt="nasa picture of the day"/>
     </div>
 </div>
 </template>
@@ -18,7 +20,7 @@ export default {
   },
   async mounted () {
     axios
-      .get('http://localhost:3100/nasa')
+      .get('http://localhost:3100/nasa/all')
       .then((response) => {
         this.url = response.data
         console.log(response.data)
@@ -33,23 +35,28 @@ export default {
 <style scoped>
 .nasa_pic_wrapper{
     display:flex;
+    flex-direction: column;
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
     width:40em;
     height:30em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-    top:0;
-    margin-left: 20em;
+    justify-content: center;
+    align-content: normal;
 }
 .display-pic{
-  display:bloc
+    display:flex;
+    justify-content: center;
+    align-content: normal;
+}
+.title{
+    padding: 0 3em;
 }
 img{
   max-width: 35em;
   max-height: 20em;
   object-fit: cover;
-  justify-content: center;
   margin:1em;
 }
 </style>

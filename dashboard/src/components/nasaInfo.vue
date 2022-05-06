@@ -32,13 +32,11 @@ export default {
 <style scoped>
 .nasa_pic_wrapper{
     border: 2px solid black;
-    background-color: rgb(139, 139, 187);
+    background-color: rgb(139, 187, 168);
     width:35em;
     height:25em;
-    margin-left:60em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-    margin-top:0;
 }
 .display_info{
   overflow:scroll;
@@ -46,6 +44,7 @@ export default {
   max-width: 33em;
   height: 15em;
   margin:1em;
+  border-radius:5px;
   background-color: antiquewhite;
   text-align: justify;
   padding: .8em;

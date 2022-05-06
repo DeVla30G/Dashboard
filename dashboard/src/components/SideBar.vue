@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="SideBar">
        <div class="sidebarWrapper">
          <div class="sidebarMenu">
@@ -32,6 +33,7 @@
          </div>
        </div>
     </div>
+  </div>
 </template>
 <script>
 export default {
@@ -41,12 +43,11 @@ export default {
 
 <style scoped>
 .SideBar{
-    flex: 1;
-    width:100%;
-    height: 100vh;
-    background-color: rgb(27, 22, 39);
-    top:30px;
-    position:sticky;
+  background-color: rgb(27, 22, 39);
+  margin: 0 4px;
+  vertical-align: top;
+  white-space: nowrap;
+  padding:1em;
 }
 .sidebarWrapper{
     padding: 20px;

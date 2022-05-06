@@ -1,5 +1,11 @@
 <template>
   <router-view/>
+  <div id="app">
+    <aside>
+    </aside>
+    <div id="container">
+    </div>
+  </div>
 </template>
 
 <style>
@@ -7,5 +13,6 @@
 #app{
   background-color: rgb(158, 154, 154);
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
+  overflow-x: scroll;
 }
 </style>

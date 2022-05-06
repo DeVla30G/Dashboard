@@ -1,15 +1,19 @@
 <template>
-<header>
-  <nav-bar />
-</header>
-<div id="app">
-<aside class="side">
-  <side-bar/>
-</aside>
-  <nasa-pic/> <nasa-info/>
-  <daily-quotes/>
-  <weather-view/>
+<div class="flex min-h-screen">
+   <nav-bar />
+</div>
+  <div class="corps">
+    <aside>
+      <side-bar/>
+    </aside>
+      <div class="widgets">
+           <nasa-pic/>
+        <nasa-info/>
+        <daily-quotes/>
+        <weather-view/>
+      </div>
   </div>
+
 </template>
 
 <script>
@@ -29,15 +33,31 @@ export default {
     nasaInfo,
     DailyQuotes,
     WeatherView
-  }, 
- mounted() {
+  },
+  mounted () {
     if (localStorage.user) {
-      this.user = localStorage.user;
+      this.user = localStorage.user
     }
   }
 }
 </script>
 
 <style scoped>
+.corps{
+  width:100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+aside{
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+.widgets{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  grid-auto-rows: 1fr 1fr 1fr;
+}
 
 </style>

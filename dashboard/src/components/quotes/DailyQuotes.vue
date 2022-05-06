@@ -37,16 +37,12 @@ export default {
 <style scoped>
 .card{
   height: auto;
-  margin-bottom: 80px;
   width: 35em;
-  position: relative;
+  margin-left: 20em;
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
-  background-size: cover;
-  background-repeat: no-repeat;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
-  margin-top: 80px;
 }
 .list-inline{
     display:inline-flex;
