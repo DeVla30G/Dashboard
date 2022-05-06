@@ -29,10 +29,11 @@ export default {
     return {
       email: '',
       password: '',
-      user: ''
+      username: ''
     }
   },
   methods: {
+
     login (event) {
       event.preventDefault()
       axios.post('http://localhost:3000/login', {
@@ -40,11 +41,14 @@ export default {
         password: this.password
       })
         .then((response) => {
-          console.log(response.data.user)
-          console.log(response.data.access_token)
-          const token = response.data.access_token
+          console.log(response.data.username)
+          console.log(response.data.jwt)
+
+          const token = response.data.jwt
           localStorage.setItem('myToken', token)
+
           setAuth(token)
+
           this.$router.push('/account')
         })
         .catch((error) => {
@@ -53,8 +57,10 @@ export default {
     }
   }
 }
+
 </script>
 <style scoped>
+
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&display=swap');
 h1,p {
 text-align: center;

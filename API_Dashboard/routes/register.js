@@ -77,7 +77,7 @@ app.post("/", (req, res) => {
         if (validateEmail(body.email)) {
 
             // Check if > 13yo
-            
+
 
                 // Hashing password
                 bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
@@ -139,20 +139,20 @@ app.post("/", (req, res) => {
                                   <br>
                                   Click the button below to complete the process.
                                   </p>
-                              
+
                                   <a href="${link}" style="background-color: #F6A433; color : #fff; padding: 10px 7px; text-decoration: none; border-radius: 0.375rem;">Confirm account</a>
                                 </div>
-                                  
+
                               </body>`
                             }
-    
+
                             transporter.sendMail(options, (err, info) => {
                                 if (err) {
                                     console.log(err);
                                     res.status(500).send(err);
                                     return;
                                 }
-    
+
                                 console.log(info);
                                 res.status(201).send({ msg: "The mail was successfully sent (if you can't see it, it is probably in your spams)." });
                                 return
@@ -209,10 +209,10 @@ module.exports = app;
                               <br>
                               Click the button below to complete the process.
                               </p>
-                          
+
                               <a href="${link}" style="background-color: #F6A433; color : #fff; padding: 10px 7px; text-decoration: none; border-radius: 0.375rem;">Confirm account</a>
                             </div>
-                              
+
                           </body>`
                         }
 

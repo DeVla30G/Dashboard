@@ -70,23 +70,23 @@
         </ul>
       </div> -->
         <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
-          {{ user.name }} </p>
+          {{ user.username }} </p>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
-          <a
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          <button
+            type="button"
+            class="dropdown-toggle d-flex align-items-center hidden-arrow btn btn-primary"
             href="#"
             id="navbarDropdownMenuAvatar"
             role="button"
             data-mdb-toggle="dropdown"
             aria-expanded="false">
-            <img :src="user.avatar" class="rounded-circle" height="25" alt="User Image" loading="lazy"
-              style="border-radius: 60%; height: 30px; width: 30px"/>
-          </a>
+          {{ username }} User</button>
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-<router-link style="text-decoration: none" :to="'/profil'"><a class="dropdown-item" href="#">Profil</a></router-link>
+<!--<router-link style="text-decoration: none" :to="{name:'/about', params: {id: user.id}}"><a class="dropdown-item" href="#">Profil</a></router-link>-->
+<router-link style="text-decoration: none" :to="'/AboutView'"><a class="dropdown-item" href="#">Profil</a></router-link>
             </li>
             <li v-if="user.is_admin == 1">
 <router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
@@ -109,7 +109,7 @@ const axios = require('axios')
 export default {
   name: 'NavBar',
   component: {},
-  props: {},
+  props: ['id'],
   data: () => {
     return {
       token: '',
@@ -119,7 +119,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:3000/users', {
+      .get('http://localhost:3000/users/' + this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -132,7 +132,7 @@ export default {
   computed () {},
   methods: {
     logout () {
-      axios.get('http://localhost:3000/users')
+      axios.get('http://localhost:3000/users/' + this.$route.params.id)
       localStorage.removeItem('myToken')
       this.$router.push('/login')
     }
