@@ -3,7 +3,7 @@ const app = express.Router();
 const cors = require("cors");
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-const API_KEY = 'xSeWjulVmnjyPp3Mam1ep9oCYGhbT7vukOoaTIxo';
+const MY_TOKEN = 'c03398ab9d36a03521735b4508d8be4acaee8c6799394cf02ae3b92bf5309d55'; // météo next hours daily limit 10 calls
 
 /* GET home page. */
 app.get('/home', function(req, res, next) {
@@ -12,8 +12,8 @@ app.get('/home', function(req, res, next) {
 
 
 app.get("/", async (req, res) => {
-  console.log("/image endpoint called");
-  const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+  console.log("/nextHours endpoint called");
+  const url = `https://api.meteo-concept.com/api/forecast/nextHours?token=${MY_TOKEN}`;
   const options = { 
     "method": "GET",
   };
@@ -30,9 +30,9 @@ app.get("/", async (req, res) => {
   res.json(response.url); 
 }); 
 
-app.get("/all", async (req, res) => {
-    console.log("/description endpoint called");
-    const url = `https://api.nasa.gov/planetary/apod?api_key=${API_KEY}`;
+app.get("/eph", async (req, res) => {
+    console.log("/ephemeride endpoint called");
+    const url = 'http://api.meteo-concept.com/api/ephemeride/0?token=c03398ab9d36a03521735b4508d8be4acaee8c6799394cf02ae3b92bf5309d55';
     const options = { 
       "method": "GET",
     };
@@ -47,6 +47,29 @@ app.get("/all", async (req, res) => {
     console.log(response);
     res.header('Access-Control-Allow-Origin', '*')
     res.json(response); 
+  }); 
+
+
+
+
+  app.get("/city", async (req, res) => {
+    console.log("/city endpoint called");
+    let city = 'Nice';
+    const url = `https://api.meteo-concept.com/api/location/cities?token=${MY_TOKEN}&search=${city}`;
+    const options = { 
+      "method": "GET",
+    };
+    const response = await fetch(url, options)
+      .then(res => res.json())
+      .catch(e => {
+        console.error ({
+          "message": "sorry not good",
+          error: e
+        });
+      });
+    console.log(response);
+    res.header('Access-Control-Allow-Origin', '*')
+    res.json(response.url); 
   }); 
 
 module.exports = app;

@@ -7,18 +7,16 @@
 </aside>
   <nasa-pic/> <nasa-info/>
   <DailyQuotes/>
+  <waether-view/>
 </template>
 
 <script>
-// import axios from 'axios'
-// import ButtonGlobal from '@/components/ButtonGlobal.vue'
 import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
-// import SideBar from '@/components/SideBar.vue'
-// import { apiUrl } from '../../config.json'
+import WaetherView from '@/components/WeatherView.vue'
 
 export default {
   name: 'DashBoard',
@@ -27,11 +25,13 @@ export default {
     SideBar,
     nasaPic,
     nasaInfo,
-    DailyQuotes
+    DailyQuotes,
+    WaetherView
   }
 }
 </script>
-
+,
+    WaetherView
 <style scoped>
 
 .widget {
