@@ -2,10 +2,10 @@
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
-            <h3>Your Daily Quote :</h3>
+            <h3>Your Daily sweet image :</h3>
           </div>
-          <p>{{ positives }}</p>
-          <button v-on:click="newDaily">New</button>
+          <img v-bind:src= image alt="DailyImage">
+          <button v-on:click="newImage">New</button>
         </div>
 </template>
 
@@ -18,14 +18,14 @@ export default {
   ],
   data: () => {
     return {
-      positives: ''
+      image: ''
     }
   },
   mounted () {
     axios
-      .get('http://localhost:3030/daily')
+      .get('http://localhost:3030/dailyImage')
       .then((response) => {
-        this.quotes = (response.data[0].positives)
+        this.image = (response.data[0].image)
         console.log(response.data)
       })
       .catch((err) => {
@@ -33,11 +33,11 @@ export default {
       })
   },
   methods: {
-    newDaily () {
+    newImage () {
       axios
-        .get('http://localhost:3030/daily')
+        .get('http://localhost:3030/dailyImage')
         .then((response) => {
-          this.positives = response.data[0].positive
+          this.image = response.data[0].image
           console.log(response.data)
         })
         .catch((err) => {

@@ -8,6 +8,8 @@
 </aside>
   <nasa-pic/> <nasa-info/>
   <DailyQuotes/>
+  <Challenge/>
+  <DailyImage/>
 </template>
 
 <script>
@@ -18,6 +20,8 @@ import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
+import Challenge from '../components/quotes/Challenge.vue'
+import DailyImage from '../components/quotes/DailyImage.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 export default {
@@ -27,7 +31,9 @@ export default {
     SideBar,
     nasaPic,
     nasaInfo,
-    DailyQuotes
+    DailyQuotes,
+    Challenge,
+    DailyImage
   }
 }
 </script>

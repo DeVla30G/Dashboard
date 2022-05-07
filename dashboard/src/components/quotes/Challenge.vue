@@ -2,10 +2,10 @@
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
-            <h3>Your Daily Quote :</h3>
+            <h3>Your Daily Challenge :</h3>
           </div>
-          <p>{{ positives }}</p>
-          <button v-on:click="newDaily">New</button>
+          <p>{{ challenge }}</p>
+          <button v-on:click="newChallenge">New</button>
         </div>
 </template>
 
@@ -18,14 +18,14 @@ export default {
   ],
   data: () => {
     return {
-      positives: ''
+      challenge: ''
     }
   },
   mounted () {
     axios
-      .get('http://localhost:3030/daily')
+      .get('http://localhost:3030/challenge')
       .then((response) => {
-        this.quotes = (response.data[0].positives)
+        this.challenge = (response.data[0].challenge)
         console.log(response.data)
       })
       .catch((err) => {
@@ -33,11 +33,11 @@ export default {
       })
   },
   methods: {
-    newDaily () {
+    newChallenge () {
       axios
-        .get('http://localhost:3030/daily')
+        .get('http://localhost:3030/challenge')
         .then((response) => {
-          this.positives = response.data[0].positive
+          this.challenge = response.data[0].challenge
           console.log(response.data)
         })
         .catch((err) => {
