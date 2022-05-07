@@ -29,10 +29,10 @@ const verifyIdentity = (req, res, next) => {
  *     parameters:
  *         -  in: path
  *            name: id
- *            schema: 
+ *            schema:
  *               type: string
  *               format: date
- *     responses: 
+ *     responses:
  *        200:
  *          description: successful operation
  */
@@ -40,7 +40,7 @@ const verifyIdentity = (req, res, next) => {
 
     app.get("/a/:id", (req, res) => {
     let sql = `SELECT DATE(create_time), CURDATE(), DATEDIFF(CURDATE(), create_time) FROM users WHERE id =${req.params.id}`;
-    
+
     con.query(sql, async (err, result, fields) => {
         if (err) return res.status(500).send(err);
         if(result) return res.status(200).send(result);
@@ -159,7 +159,7 @@ app.get("/:id", (req, res) => {
  });
 
 
-/** 
+/**
 * @swagger
 * paths:
 *  /users/{id}:
@@ -171,9 +171,9 @@ app.get("/:id", (req, res) => {
 */
 
 app.get("/users/:id", (req, res) => {
-  
+
     let sql = `SELECT role FROM users WHERE id = ${req.params.id};`
-   
+
     con.query(sql, (err, result, fields) => {
         if(err) return res.status(500).send(err);
         if(result){
@@ -184,6 +184,6 @@ app.get("/users/:id", (req, res) => {
     });
  });
 
-// delete user admin delete 
+// delete user admin delete
 
 module.exports = app;

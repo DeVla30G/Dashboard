@@ -15,6 +15,7 @@
           />
           {{ user.email }}
         </p>
+        <a type="button" @click="retour" href="#" class="btn btn-light btn-sm">Retour</a>
       </div>
     </div>
   </div>
@@ -44,6 +45,13 @@ export default {
         console.log(response.data)
         this.user = response.data
       })
+  },
+  computed () {},
+  methods: {
+    retour () {
+      axios.get('http://localhost:3000/users/' + this.$route.params.id)
+      this.$router.push('/account/' + this.$route.params.id)
+    }
   }
 }
 </script>

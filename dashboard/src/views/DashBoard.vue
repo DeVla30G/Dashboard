@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="flex min-h-screen">
    <nav-bar />
 </div>
@@ -8,12 +9,16 @@
     </aside>
       <div class="widgets">
            <nasa-pic/>
-        <nasa-info />
-        <daily-quotes />
+        <nasa-info/>
+        <daily-quotes/>
+        <daily-joke/>
+        <daily-image/>
+        <challenge/>
         <weather-view/>
         <weather-comp/>
       </div>
   </div>
+</div>
 
 </template>
 
@@ -24,8 +29,9 @@ import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
-import WeatherComp from '@/components/WeatherComp.vue'
-import LocalStore from '../assets/localStore'
+import Challenge from '../components/quotes/Challenge.vue'
+import DailyImage from '../components/quotes/DailyImage.vue'
+import DailyJoke from '../components/quotes/DailyJoke.vue'
 
 export default {
   name: 'DashBoard',
@@ -36,7 +42,9 @@ export default {
     nasaInfo,
     DailyQuotes,
     WeatherView,
-    WeatherComp
+    Challenge,
+    DailyImage,
+    DailyJoke
   },
   el: {
     nasaPic,

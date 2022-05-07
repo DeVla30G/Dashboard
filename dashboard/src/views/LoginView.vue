@@ -1,7 +1,7 @@
 <template>
 <div class="form-container sign-in-container">
 <form >
-<h1>Login</h1>
+<h1>Please Login</h1>
 <span></span>
 <input v-model="email" type="text" placeholder="Email" required/>
 <input v-model="password" type="password" placeholder="Password" required/>
@@ -21,7 +21,6 @@
 <script>
 import axios from 'axios'
 import setAuth from '../Services/auth_service.js'
-
 export default {
   name: 'LoginView',
   components: {
