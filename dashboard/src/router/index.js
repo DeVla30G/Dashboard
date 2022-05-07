@@ -3,6 +3,7 @@ import DashBoard from '../views/DashBoard.vue'
 import AccountView from '../views/AccountView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
+import AdminView from '../views/AdminView.vue'
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     component: LoginView
   },
   {
+  path: '/admin',
+  name: 'admin',
+  component: AdminView
+  },
+  {
+    path: '/about',
     path: '/about/:id',
     name: 'about',
     // route level code-splitting

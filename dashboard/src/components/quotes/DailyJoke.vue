@@ -2,30 +2,30 @@
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
-            <h3>Your Daily Quote :</h3>
+            <h3>Your Daily Joke :</h3>
           </div>
-          <p>{{ positive }}</p>
-          <button v-on:click="newQuote">New</button>
+          <p>{{ dailyJoke }}</p>
+          <button v-on:click="newJoke">New</button>
         </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'DailyQuotes',
+  name: 'DailyJoke',
   props: [
     'quot'
   ],
   data: () => {
     return {
-      positive: ''
+      dailyJoke: ''
     }
   },
   mounted () {
     axios
-      .get('http://localhost:3030/daily')
+      .get('http://localhost:3030/joke')
       .then((response) => {
-        this.positive = (response.data[0].positive)
+        this.dailyJoke = (response.data[0].dailyJoke)
         console.log(response.data)
       })
       .catch((err) => {
@@ -33,11 +33,11 @@ export default {
       })
   },
   methods: {
-    newQuote () {
+    newJoke () {
       axios
-        .get('http://localhost:3030/daily')
+        .get('http://localhost:3030/joke')
         .then((response) => {
-          this.positive = response.data[0].positive
+          this.dailyJoke = response.data[0].dailyJoke
           console.log(response.data)
         })
         .catch((err) => {
@@ -57,6 +57,12 @@ export default {
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+}
+.list-inline{
+    display:inline-flex;
+    text-decoration : underline;
+    text-underline-position: under;
+    margin:.5em;
 }
 img{
   border-radius: 50%;
