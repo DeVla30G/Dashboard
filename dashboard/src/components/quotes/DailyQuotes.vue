@@ -50,13 +50,12 @@ export default {
 
 <style scoped>
 .card{
-  height: auto;
-  width: 35em;
-  margin-left: 20em;
+  height: 15em;
+  width: 28em;
   background-color: pink;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  padding:1em;
+  border-radius:10px;
+  box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
 }
 img{
   border-radius: 50%;

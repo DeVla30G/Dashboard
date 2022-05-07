@@ -27,12 +27,12 @@ const routes = [
     component: LoginView
   },
   {
-  path: '/admin',
-  name: 'admin',
-  component: AdminView
+    path: '/admin',
+    name: 'admin',
+    component: AdminView
   },
   {
-    path: '/about',
+
     path: '/about/:id',
     name: 'about',
     // route level code-splitting

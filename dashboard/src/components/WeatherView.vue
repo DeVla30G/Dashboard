@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-            <th colspan="4">Next few days</th>
+            <th colspan="4">Next few hours</th>
             </tr>
         </thead>
         <tbody>
@@ -83,7 +83,7 @@ export default {
 .weather_wrapper{
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
-    width:35em;
+    width:33em;
     height:25em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
@@ -91,7 +91,7 @@ export default {
 }
 .display_info{
   overflow-x: hidden;
-  width: 33em;
+  width: 31em;
   height: 15em;
   margin:1em;
   background-color: antiquewhite;

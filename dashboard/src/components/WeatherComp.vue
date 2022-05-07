@@ -1,6 +1,7 @@
 <template>
       <!-- Search bar -->
       <div class="search-box">
+          <h3> Search by city:</h3>
         <input type="text" class="search-bar" placeholder="Search..." />
       </div>
       <!-- Result -->
@@ -46,9 +47,13 @@ export default {
 <style scoped>
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;700;900&display=swap");
   .search-box{
-      border: 2px solid black;
-      max-width: 20em;
-      min-width: 15em;
-      max-height: 20em;
+    border: 2px solid black;
+    background-color: rgb(40, 40, 231);
+    width:30em;
+    height:25em;
+    border-radius:10px;
+    box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
+    margin:0;
+    padding: 1em;
   }
 </style>

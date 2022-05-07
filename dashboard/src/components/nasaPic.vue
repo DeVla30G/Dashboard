@@ -38,7 +38,7 @@ export default {
     flex-direction: column;
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
-    width:40em;
+    width:33em;
     height:30em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
