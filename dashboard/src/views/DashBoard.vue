@@ -10,6 +10,9 @@
            <nasa-pic/>
         <nasa-info/>
         <daily-quotes/>
+        <daily-joke/>
+        <daily-image/>
+        <challenge/>
         <weather-view/>
       </div>
   </div>
@@ -23,6 +26,9 @@ import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
+import Challenge from '../components/quotes/Challenge.vue'
+import DailyImage from '../components/quotes/DailyImage.vue'
+import DailyJoke from '../components/quotes/DailyJoke.vue'
 
 export default {
   name: 'DashBoard',
@@ -32,7 +38,10 @@ export default {
     nasaPic,
     nasaInfo,
     DailyQuotes,
-    WeatherView
+    WeatherView,
+    Challenge,
+    DailyImage,
+    DailyJoke
   },
   mounted () {
     if (localStorage.user) {

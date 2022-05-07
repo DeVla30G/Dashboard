@@ -10,6 +10,7 @@
   <DailyQuotes/>
   <Challenge/>
   <DailyImage/>
+  <DailyJoke/>
 </template>
 
 <script>
@@ -22,6 +23,7 @@ import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import Challenge from '../components/quotes/Challenge.vue'
 import DailyImage from '../components/quotes/DailyImage.vue'
+import DailyJoke from '../components/quotes/DailyJoke.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 export default {
@@ -33,7 +35,8 @@ export default {
     nasaInfo,
     DailyQuotes,
     Challenge,
-    DailyImage
+    DailyImage,
+    DailyJoke
   }
 }
 </script>
