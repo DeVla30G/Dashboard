@@ -1,36 +1,62 @@
 <template>
 <div class="nasa_pic_wrapper" >
-    <h2> Date {{ result }} </h2>
-    <img src="picture" alt="nasa picture of the day"/>
+    <div class="title">
+    <h2> {{ url.title }} </h2>
+    </div>
+    <div class="display-pic">
+    <img v-bind:src= url.url alt="nasa picture of the day"/>
+    </div>
 </div>
 </template>
 
 <script>
-// import axios from 'axios'
-
+import axios from 'axios'
 export default {
   name: 'nasaPic',
   data () {
     return {
-      result: ''
+      url: ''
     }
   },
-  created () {
-    fetch('http://localhost:3100/nasa', { method: 'GET', redirect: 'follow' })
-      .then((response) => response.json())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error))
+  async mounted () {
+    axios
+      .get('http://localhost:3100/nasa/all')
+      .then((response) => {
+        this.url = response.data
+        console.log(response.data)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 }
 </script>
 
 <style scoped>
 .nasa_pic_wrapper{
+    display:flex;
+    flex-direction: column;
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
-    width:20em;
-    height:15em;
+    width:40em;
+    height:30em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
+    justify-content: center;
+    align-content: normal;
+}
+.display-pic{
+    display:flex;
+    justify-content: center;
+    align-content: normal;
+}
+.title{
+    padding: 0 3em;
+}
+img{
+  max-width: 35em;
+  max-height: 20em;
+  object-fit: cover;
+  margin:1em;
 }
 </style>

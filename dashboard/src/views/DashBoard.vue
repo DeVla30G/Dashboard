@@ -1,26 +1,32 @@
 <template>
 <div>
-<header>
-  <NavBar />
-</header>
-<aside class="side">
-  <side-bar/>
-</aside>
-  <nasa-pic/> <nasa-info/>
-  <DailyQuotes/>
+<div class="flex min-h-screen">
+   <nav-bar />
 </div>
+  <div class="corps">
+    <aside>
+      <side-bar/>
+    </aside>
+      <div class="widgets">
+           <nasa-pic/>
+        <nasa-info/>
+        <daily-quotes/>
+        <weather-view/>
+        <weather-comp/>
+      </div>
+  </div>
+</div>
+
 </template>
 
 <script>
-// import axios from 'axios'
-// import ButtonGlobal from '@/components/ButtonGlobal.vue'
 import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
-// import SideBar from '@/components/SideBar.vue'
-// import { apiUrl } from '../../config.json'
+import WeatherView from '@/components/WeatherView.vue'
+import WeatherComp from '@/components/WeatherComp.vue'
 
 export default {
   name: 'DashBoard',
@@ -29,27 +35,32 @@ export default {
     SideBar,
     nasaPic,
     nasaInfo,
-    DailyQuotes
+    DailyQuotes,
+    WeatherView,
+    WeatherComp
+  },
+  mounted () {
+    if (localStorage.user) {
+      this.user = localStorage.user
+    }
   }
 }
 </script>
 
 <style scoped>
-
-.widget {
-    display: block;
-    position: relative;
-    width:20%;
-    height:10%;
-    padding: 15px 20px;
-    background: rgb(210, 208, 218);
-    border-radius: 0.45rem;
-    -webkit-box-shadow: var(--widget-shadow);
-    box-shadow: var(--widget-shadow);
-    margin: 15em;
+.corps{
+  width:100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
-.side{
-  width: 15%;
+aside{
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+.widgets{
+  display: flexbox;
+  position: relative;
 }
 
 </style>

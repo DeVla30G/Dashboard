@@ -6,18 +6,13 @@
 </template>
 
 <script>
-
 export default {
-
   methods: {
     buttonGlobal () {
       this.$router.push('/account')
     }
-
   }
-
 }
-
 </script>
 
 <style scoped>

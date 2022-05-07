@@ -1,12 +1,12 @@
 module.exports = {
-  plugins: ['wdio'],
-  extends: 'plugin:wdio/recommended',
+  plugins: [
+    'cypress'
+  ],
   env: {
-    mocha: true
+    mocha: true,
+    'cypress/globals': true
   },
   rules: {
-    'class-methods-use-this': 'off',
-    'max-len': 'off',
     strict: 'off'
   }
 }

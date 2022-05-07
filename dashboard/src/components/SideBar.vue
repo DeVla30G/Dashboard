@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="SideBar">
        <div class="sidebarWrapper">
          <div class="sidebarMenu">
@@ -33,10 +34,9 @@
          </div>
        </div>
     </div>
+  </div>
 </template>
-
 <script>
-import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 export default {
   name: 'SideBar',
   components: {
@@ -61,37 +61,30 @@ export default {
 
 <style scoped>
 .SideBar{
-    flex: 1;
-    width:100%;
-    height: 100vh;
-    background-color: rgb(27, 22, 39);
-    top:30px;
-    position:sticky;
+  background-color: rgb(27, 22, 39);
+  margin: 0 4px;
+  vertical-align: top;
+  white-space: nowrap;
+  padding:1em;
 }
-
 .sidebarWrapper{
     padding: 20px;
     color: #555;
 }
-
 a{
     color: black;
 }
-
 .sidebarMenu{
     margin-bottom: 10px;
 }
-
 .sidebarTitle{
     font-size: 13px;
     color: #555;
 }
-
 .sidebarList{
     list-style: none;
     padding: 5px;
 }
-
 .sidebartListItem{
     padding: 5px;
     cursor: pointer;
@@ -100,16 +93,10 @@ a{
     border-radius: 10px;
     margin-top: 10px;
 }
-
 .sidebartListItem.active, .sidebartListItem:hover {
    background-color: #92908a;
    width: 80%;
    justify-content: center;
-
-}
-
-.sidebarIcon{
-   margin-right: 5px;
 }
 a{
    color:bisque;

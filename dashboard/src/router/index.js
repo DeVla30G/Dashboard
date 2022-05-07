@@ -12,17 +12,12 @@ const routes = [
     component: DashBoard
   },
   {
-    path: '/login',
-    name: 'login',
-    component: LoginView
-  },
-  {
     path: '/register',
     name: 'register',
     component: RegisterView
   },
   {
-    path: '/account',
+    path: '/account/:id',
     name: 'account',
     component: AccountView
   },
@@ -38,6 +33,7 @@ const routes = [
   },
   {
     path: '/about',
+    path: '/about/:id',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

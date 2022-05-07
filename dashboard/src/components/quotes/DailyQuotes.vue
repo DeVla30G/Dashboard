@@ -1,13 +1,11 @@
 <template>
- <div class="col-md-6">
         <div class="card" >
-          <ul class="list-inline">
-            <li><img src="" alt="" /></li>
-            <li>Your Daily Quote</li>
-          </ul>
-          <p>{{quotes}}</p>
+          <div class="list-inline">
+            <img src="../../assets/zen-icon.png" alt="lotus"/>
+            <h3>Your Daily Quote :</h3>
+          </div>
+          <p>{{ quotes }}</p>
         </div>
-      </div>
 </template>
 
 <script>
@@ -19,14 +17,14 @@ export default {
   ],
   data: () => {
     return {
-      quotes: []
+      quotes: ''
     }
   },
   mounted () {
     axios
       .get('http://localhost:3030/daily')
       .then((response) => {
-        this.quotes = response.data[0].positive
+        this.quotes = (response.data[0].positive)
         console.log(response.data)
       })
       .catch((err) => {
@@ -34,50 +32,30 @@ export default {
       })
   }
 }
-
 </script>
 
 <style scoped>
 .card{
-  height: 100px;
-  margin-bottom: 80px;
-  width: 350px;
-  position: relative;
+  height: auto;
+  width: 35em;
+  margin-left: 10em;
+  margin-top: 0;
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
-  background-size: cover;
-  background-repeat: no-repeat;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
-  margin-top: 80px;
-
 }
-h1{
-  color:white;
-  position: absolute;
-  left: 10px;
-  bottom: 0px;
-}
-.date{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    text-align: right;
-    color: white;
-  }
-.city{
-    position: absolute;
-    right: 10px;
-    bottom: 0px;
-    color: white;
-}
-
 .list-inline{
-  margin-bottom: 0 !important;
+    display:inline-flex;
+    text-decoration : underline;
+    text-underline-position: under;
+    margin:.5em;
 }
-
-h3{
-  margin: 0 !important;
+img{
+  border-radius: 50%;
+  margin: .5em;
 }
-
+p{
+  margin: 1em;
+}
 </style>

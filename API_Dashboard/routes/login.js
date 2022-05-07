@@ -84,6 +84,7 @@ app.post("/", (req, res) => {
                         console.log(user);
                         const token =jwt.sign({user}, process.env.ACCESS_TOKEN_SECRET);
                         user.jwt = token;
+                        console.log(user.jwt)
                         res.send(user);
                     } else {
                         res.status(403).send({ msg: "Wrong password." });

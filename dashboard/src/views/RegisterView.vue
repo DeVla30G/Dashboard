@@ -17,10 +17,8 @@
 
 <script>
 import axios from 'axios'
-
 export default {
   name: 'RegisterView',
-
   data () {
     return {
       firstname: '',
@@ -56,7 +54,6 @@ export default {
     }
   }
 }
-
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&display=swap');

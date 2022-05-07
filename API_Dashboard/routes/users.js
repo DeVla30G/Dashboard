@@ -167,7 +167,7 @@ app.get("/:id", (req, res) => {
 *      parameters:
 *       - in: path
 *         name: id
-*
+*         required: true
 */
 
 app.get("/users/:id", (req, res) => {

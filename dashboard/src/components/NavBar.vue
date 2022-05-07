@@ -42,54 +42,24 @@
             <a class="nav-link" href="#">Login</a></router-link>
           </li>
         </ul>
-        <!-- Notifications -->
-        <!-- <div class="dropdown">
-        <a
-          class="text-reset me-3 dropdown-toggle hidden-arrow"
-          href="#"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-mdb-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bell"></i>
-        </a>
-        <ul
-          class="dropdown-menu dropdown-menu-end"
-          aria-labelledby="navbarDropdownMenuLink"
-        >
-          <li>
-            <a class="dropdown-item" href="#">Some news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another news</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div> -->
-        <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
-          {{ user.name }} </p>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
-          <a
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
+        <p> Hello {{ user.username }} {{ user.id}} ! </p>
+          <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
             id="navbarDropdownMenuAvatar"
             role="button"
             data-mdb-toggle="dropdown"
             aria-expanded="false">
-            <img :src="user.avatar" class="rounded-circle" height="25" alt="User Image" loading="lazy"
-              style="border-radius: 60%; height: 30px; width: 30px"/>
+            <img src="../assets/avatarF.jpg" class="rounded-circle" height="35" alt="User Image" style="border-radius: 50%; height: 4em; width: 4em"/>
           </a>
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-          <a v-on:click= "goAbout">Profil</a>
+              <a @click="about" class="dropdown-item" href="#">Profile</a>
             </li>
             <li v-if="user.is_admin == 1">
-          <a  v-on:click= "goAdmin">AdminPage</a>
+              <router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
             </li>
             <li>
               <a @click="logout" class="dropdown-item" href="#">Logout</a>
@@ -119,7 +89,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:3000/users'+ this.$route.params.id, {
+      .get('http://localhost:3000/users/' + this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -141,7 +111,11 @@ export default {
     logout () {
       axios.get('http://localhost:3000/users')
       localStorage.removeItem('myToken')
-      this.$router.push('/login')
+      this.$router.push('/')
+    },
+    about () {
+      axios.get('http://localhost:3000/users/' + this.$route.params.id)
+      this.$router.push('/about/' + this.$route.params.id)
     }
   }
 }
@@ -154,6 +128,10 @@ export default {
 }
 .navbar{
   background-color: rgb(27, 22, 39);
+   display: flex;
+  height: 10%;
+  justify-content: space-between;
+  color: bisque;
 }
 .navbar img{
   margin:1em;
@@ -162,5 +140,10 @@ export default {
   font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 800;
   font-size: 24px;
+}
+
+ul{
+ list-style: none;
+text-decoration: none;
 }
 </style>
