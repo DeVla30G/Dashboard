@@ -44,7 +44,7 @@
         </ul>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
-        <p> Hello {{ user.username }} {{ user.id}} ! </p>
+        <p> Hello {{ user.username }} ! </p>
           <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
             id="navbarDropdownMenuAvatar"

@@ -2,30 +2,30 @@
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
-            <h3>Your Daily Quote :</h3>
+            <h3>Your Daily sweet image :</h3>
           </div>
-          <p>{{ positive }}</p>
-          <button v-on:click="newQuote">New</button>
+          <img v-bind:src= image alt="DailyImage">
+          <button v-on:click="newImage">New</button>
         </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'DailyQuotes',
+  name: 'DailyImage',
   props: [
     'quot'
   ],
   data: () => {
     return {
-      positive: ''
+      image: ''
     }
   },
   mounted () {
     axios
-      .get('http://localhost:3030/daily')
+      .get('http://localhost:3030/dailyImage')
       .then((response) => {
-        this.positive = (response.data[0].positive)
+        this.image = (response.data[0].image)
         console.log(response.data)
       })
       .catch((err) => {
@@ -33,11 +33,11 @@ export default {
       })
   },
   methods: {
-    newQuote () {
+    newImage () {
       axios
-        .get('http://localhost:3030/daily')
+        .get('http://localhost:3030/dailyImage')
         .then((response) => {
-          this.positive = response.data[0].positive
+          this.image = response.data[0].image
           console.log(response.data)
         })
         .catch((err) => {
@@ -58,7 +58,12 @@ export default {
   padding: 10px;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
 }
-
+.list-inline{
+    display:inline-flex;
+    text-decoration : underline;
+    text-underline-position: under;
+    margin:.5em;
+}
 img{
   border-radius: 50%;
   margin: .5em;
