@@ -18,8 +18,7 @@
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link style="text-decoration: none" :to="'/'"
-              ><a class="nav-link" href="#">Dashboard</a></router-link
+<router-link style="text-decoration: none" :to="'/'"><a class="nav-link" href="#">Dashboard</a></router-link
             >
           </li>
           <li class="nav-item"></li>
@@ -87,10 +86,10 @@
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-<router-link style="text-decoration: none" :to="'/profil'"><a class="dropdown-item" href="#">Profil</a></router-link>
+          <a v-on:click= "goAbout">Profil</a>
             </li>
             <li v-if="user.is_admin == 1">
-<router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
+          <a  v-on:click= "goAdmin">AdminPage</a>
             </li>
             <li>
               <a @click="logout" class="dropdown-item" href="#">Logout</a>
@@ -120,7 +119,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:3000/users', {
+      .get('http://localhost:3000/users'+ this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -132,6 +131,13 @@ export default {
   },
   computed () {},
   methods: {
+     goAbout () {
+      axios.get('http://localhost:3000/users/' + this.$route.params.id)
+      this.$router.push('/about/' + this.$route.params.id)
+    },
+    goAdmin () {
+      this.$router.push('/admin')
+    },
     logout () {
       axios.get('http://localhost:3000/users')
       localStorage.removeItem('myToken')

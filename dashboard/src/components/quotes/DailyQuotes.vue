@@ -26,7 +26,7 @@ export default {
     axios
       .get('http://localhost:3030/daily')
       .then((response) => {
-        this.quotes = response.data
+        this.quotes = response.data[0].positive
         console.log(response.data)
       })
       .catch((err) => {

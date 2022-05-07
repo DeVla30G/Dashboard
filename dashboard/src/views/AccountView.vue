@@ -22,7 +22,7 @@
           <ul class="list-inline">
             <li><img src="" alt="" /></li>
             <li>Your Daily Image</li>
-            <img :src= images />
+            <img v-bind:src= images alt="image zen"/>
           <button v-on:click="newImage">New</button>
           </ul>
 
@@ -45,7 +45,7 @@ export default {
     return {
       positives: '',
       challenges: '',
-      images: ''
+      images: null
     }
   },
   mounted () {
@@ -63,17 +63,17 @@ export default {
       .get('http://localhost:3030/challenge')
       .then((response) => {
         this.challenges = response.data[0].challenge
-        console.log(response.data)
+        console.log(this.challenges)
       })
       .catch((err) => {
         console.log(err)
       })
 
     axios
-      .get('http://localhost:3030/dailyImage')
+      .get('http://localhost:3030/dailyImage', { headers: { 'Content-type': 'text/html' } })
       .then((response) => {
         this.images = response.data[0].image
-        console.log(response.data)
+        console.log(this.images)
       })
       .catch((err) => {
         console.log(err)
