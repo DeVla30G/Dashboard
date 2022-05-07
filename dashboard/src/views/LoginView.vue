@@ -1,5 +1,4 @@
 <template>
-<nav-bar/>
 <div class="form-container sign-in-container">
 <form >
 <h1>Login</h1>
@@ -22,18 +21,18 @@
 <script>
 import axios from 'axios'
 import setAuth from '../Services/auth_service.js'
-import NavBar from '@/components/NavBar.vue'
 
 export default {
   name: 'LoginView',
   components: {
-    NavBar
+
   },
   data () {
     return {
       email: '',
       password: '',
-      user: ''
+      user: '',
+      id: ''
     }
   },
   methods: {
@@ -45,11 +44,12 @@ export default {
       })
         .then((response) => {
           console.log(response.data.user)
-          console.log(response.data.access_token)
-          const token = response.data.access_token
+          console.log(response.data.id)
+          console.log(response.data.jwt)
+          const token = response.data.jwt
           localStorage.setItem('myToken', token)
           setAuth(token)
-          this.$router.push('/account')
+          this.$router.push('/account/' + response.data.id)
         })
         .catch((error) => {
           console.log(error)

@@ -42,11 +42,9 @@
             <a class="nav-link" href="#">Login</a></router-link>
           </li>
         </ul>
-        <p v-if="this.token != null" style="margin-top: 15px; padding-right: 5px">
-       Vladi </p>
         <!-- Avatar -->
         <div v-if="this.token != null" class="dropdown">
-        <p> Hello {{ user.email }} ! </p>
+        <p> Hello {{ user.username }} {{ user.id}} ! </p>
           <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
             href="#"
             id="navbarDropdownMenuAvatar"
@@ -58,10 +56,10 @@
           <ul class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuAvatar">
             <li>
-<router-link style="text-decoration: none" :to="'/profil'"><a class="dropdown-item" href="#">Profil</a></router-link>
+              <a @click="about" class="dropdown-item" href="#">Profile</a>
             </li>
             <li v-if="user.is_admin == 1">
-<router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
+              <router-link style="text-decoration: none" :to="'/AccueilCrud'"><a class="dropdown-item" href="#">Admin</a></router-link>
             </li>
             <li>
               <a @click="logout" class="dropdown-item" href="#">Logout</a>
@@ -91,7 +89,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:3000/users' + this.$route.params.id, {
+      .get('http://localhost:3000/users/' + this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
