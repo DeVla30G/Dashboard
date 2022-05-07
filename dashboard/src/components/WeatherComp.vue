@@ -24,15 +24,15 @@ export default {
   name: 'WeatherComp',
   data () {
     return {
-      meteo: []
+      meteo: ''
     }
   },
   async mounted () {
     axios
       .get('http://localhost:3600/weather/city')
       .then((response) => {
-        this.meteo = response.data[0]
-        console.log(response.data[0])
+        this.meteo = response.data
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err)

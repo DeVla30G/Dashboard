@@ -63,8 +63,8 @@ export default {
     axios
       .get('http://localhost:3600/weather')
       .then((response) => {
-        this.meteo = response[0][0]
-        console.log(response)
+        this.meteo = response.data
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err)

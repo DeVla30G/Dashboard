@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express.Router();
-const cors = require("cors");
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 const MY_TOKEN = 'c03398ab9d36a03521735b4508d8be4acaee8c6799394cf02ae3b92bf5309d55'; // météo next hours daily limit 10 calls

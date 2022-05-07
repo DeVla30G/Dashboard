@@ -8,8 +8,8 @@
     </aside>
       <div class="widgets">
            <nasa-pic/>
-        <nasa-info/>
-        <daily-quotes/>
+        <nasa-info />
+        <daily-quotes />
         <weather-view/>
         <weather-comp/>
       </div>
@@ -25,6 +25,7 @@ import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
 import WeatherComp from '@/components/WeatherComp.vue'
+import LocalStore from '../assets/localStore'
 
 export default {
   name: 'DashBoard',
@@ -37,10 +38,28 @@ export default {
     WeatherView,
     WeatherComp
   },
-  mounted () {
-    if (localStorage.user) {
-      this.user = localStorage.user
+  el: {
+    nasaPic,
+    nasaInfo,
+    DailyQuotes,
+    WeatherView,
+    WeatherComp
+  },
+  data () {
+    return {
+      localStore: new LocalStore(),
+      isActive: true
     }
+  },
+  mounted () {
+    if (localStorage.token) {
+      this.token = localStorage.token
+    }
+  },
+  created () {
+    this.localStore.get('item', this.token)
+  },
+  methods: {
   }
 }
 </script>
