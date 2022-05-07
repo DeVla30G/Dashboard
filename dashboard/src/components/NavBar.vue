@@ -91,7 +91,7 @@ export default {
   mounted () {
     this.token = localStorage.getItem('myToken')
     axios
-      .get('http://localhost:3000/users', {
+      .get('http://localhost:3000/users'  + this.$route.params.id, {
         headers: {
           Authorization: `Bearer ${this.token}`
         }
@@ -107,6 +107,10 @@ export default {
       axios.get('http://localhost:3000/users')
       localStorage.removeItem('myToken')
       this.$router.push('/')
+    },
+  about () {
+    axios.get('http://localhost:3000/users/' + this.$route.params.id)
+    this.$router.push('/about/' + this.$route.params.id)
     }
   }
 }

@@ -37,6 +37,8 @@ export default {
     height:25em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
+    top:0;
+    margin-left: 50em;;
 }
 .display_info{
   overflow:scroll;

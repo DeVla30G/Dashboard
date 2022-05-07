@@ -11,6 +11,7 @@
         <nasa-info/>
         <daily-quotes/>
         <weather-view/>
+        <weather-comp/>
       </div>
   </div>
 
@@ -23,6 +24,7 @@ import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
 import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
+import WeatherComp from '@/components/WeatherComp.vue'
 
 export default {
   name: 'DashBoard',
@@ -32,7 +34,8 @@ export default {
     nasaPic,
     nasaInfo,
     DailyQuotes,
-    WeatherView
+    WeatherView,
+    WeatherComp
   },
   mounted () {
     if (localStorage.user) {
@@ -54,10 +57,8 @@ aside{
   flex-direction: column;
 }
 .widgets{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  grid-auto-rows: 1fr 1fr 1fr;
+  display: flexbox;
+  position: relative;
 }
 
 </style>

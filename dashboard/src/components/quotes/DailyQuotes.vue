@@ -38,7 +38,8 @@ export default {
 .card{
   height: auto;
   width: 35em;
-  margin-left: 20em;
+  margin-left: 10em;
+  margin-top: 0;
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
@@ -53,5 +54,8 @@ export default {
 img{
   border-radius: 50%;
   margin: .5em;
+}
+p{
+  margin: 1em;
 }
 </style>

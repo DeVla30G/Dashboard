@@ -37,7 +37,7 @@
         </tbody>
     </table>
     <div class="big_res">
-    <p @change="averageTemp"></p>
+    <p @change="averageTemp"> {{ meteo }} JE SUIS LA</p>
     </div>
     </div>
     <h5>Date </h5>
@@ -59,11 +59,12 @@ export default {
     }
   },
   async mounted () {
+    // nextHours endPoint
     axios
       .get('http://localhost:3600/weather')
       .then((response) => {
-        this.meteo = response.data
-        console.log(response.data)
+        this.meteo = response[0][0]
+        console.log(response)
       })
       .catch((err) => {
         console.log(err)
@@ -86,16 +87,18 @@ export default {
     height:25em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
+    margin:0;
 }
 .display_info{
-  overflow:scroll;
   overflow-x: hidden;
-  max-width: 33em;
+  width: 33em;
   height: 15em;
   margin:1em;
   background-color: antiquewhite;
   text-align: justify;
   padding: .8em;
+  display:inline-flex;
+  justify-content: space-between;
 }
 h4, h5{
 margin:.5em;

@@ -16,7 +16,7 @@ const routes = [
     component: RegisterView
   },
   {
-    path: '/account',
+    path: '/account/:id',
     name: 'account',
     component: AccountView
   },
@@ -26,7 +26,7 @@ const routes = [
     component: LoginView
   },
   {
-    path: '/about',
+    path: '/about/:id',
     name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
