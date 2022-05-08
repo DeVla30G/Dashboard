@@ -28,8 +28,9 @@ CREATE TABLE `daily` (
   `challenge` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `dailyJoke` varchar(255) NOT NULL,
+  `spirit_animal` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `daily` (
 
 LOCK TABLES `daily` WRITE;
 /*!40000 ALTER TABLE `daily` DISABLE KEYS */;
-INSERT INTO `daily` VALUES (1,'Aujourd\'hui est le plus beau jour de ma vie car c\'est le jour que je vis.','10 minutes de lecture','https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg','Pourquoi les canards sont toujours à l\'heure ? Parce qu’ils sont dans l’étang. '),(2,' Tu sais que tu es sur le bon chemin lorsque regarder en arrière ne t\'intéresse plus.','30 minutes de marche dans la nature','https://cdn.pixabay.com/photo/2017/02/05/15/04/stones-2040340_960_720.jpg','C\'est quoi un petit pois avec une épée face à une carotte avec une épée ? Un bon duel.'),(3,'En te levant le matin, rappelle-toi combien précieux est le privilège de vivre, de respirer, d\'être heureux.','Cuisiner un bon petit plat','https://cdn.pixabay.com/photo/2020/06/13/03/40/flower-5292556_960_720.jpghttps://cdn.pixabay.com/photo/2020/06/13/03/40/flower-5292556_960_720.jpg','C\'est quoi une chauve-souris avec une perruque ? Une souris.'),(4,'Ayez le courage de suivre votre intuition et votre cœur.','15 minutes de méditation','https://cdn.pixabay.com/photo/2018/04/21/15/21/yoga-3338691_960_720.jpg','C\'est l\'histoire du ptit dej, tu la connais ? Pas de bol.'),(5,' Tu es toujours plus fort que ce que tu penses.','Observer les oiseaux pendant 10 minutes','https://cdn.pixabay.com/photo/2020/08/31/20/24/zen-5533531_960_720.jpg','Dans quel pays ne bronze-t-on pas du nez ? Au Népal'),(6,' A ceux qui osent, rien n’est impossible.','Rire pendant 15 minutes','https://cdn.pixabay.com/photo/2018/07/19/13/49/buddha-3548554_960_720.jpg','La maman d’Émilie n’est pas contente - Regarde, le lait a débordé, je t’avais pourtant demandé de regarder ta montre. - Mais je l’ai fait, il était exactement 8 h 10 quand le lait a débordé !');
+INSERT INTO `daily` VALUES (1,'Aujourd\'hui est le plus beau jour de ma vie car c\'est le jour que je vis.','10 minutes de lecture','https://cdn.pixabay.com/photo/2016/02/17/19/08/lotus-1205631_960_720.jpg','Pourquoi les canards sont toujours à l\'heure ? Parce qu’ils sont dans l’étang. ','Le Tigre'),(2,' Tu sais que tu es sur le bon chemin lorsque regarder en arrière ne t\'intéresse plus.','30 minutes de marche dans la nature','https://cdn.pixabay.com/photo/2017/02/05/15/04/stones-2040340_960_720.jpg','C\'est quoi un petit pois avec une épée face à une carotte avec une épée ? Un bon duel.','L’Aigle Royal'),(3,'En te levant le matin, rappelle-toi combien précieux est le privilège de vivre, de respirer, d\'être heureux.','Cuisiner un bon petit plat','https://cdn.pixabay.com/photo/2020/06/13/03/40/flower-5292556_960_720.jpghttps://cdn.pixabay.com/photo/2020/06/13/03/40/flower-5292556_960_720.jpg','C\'est quoi une chauve-souris avec une perruque ? Une souris.','Le Lion'),(4,'Ayez le courage de suivre votre intuition et votre cœur.','15 minutes de méditation','https://cdn.pixabay.com/photo/2018/04/21/15/21/yoga-3338691_960_720.jpg','C\'est l\'histoire du ptit dej, tu la connais ? Pas de bol.','La Loutre'),(5,' Tu es toujours plus fort que ce que tu penses.','Observer les oiseaux pendant 10 minutes','https://cdn.pixabay.com/photo/2020/08/31/20/24/zen-5533531_960_720.jpg','Dans quel pays ne bronze-t-on pas du nez ? Au Népal','L’Ours'),(6,' Tu es toujours plus fort que ce que tu penses.','Observer les oiseaux pendant 10 minutes','https://cdn.pixabay.com/photo/2020/08/31/20/24/zen-5533531_960_720.jpg','Dans quel pays ne bronze-t-on pas du nez ? Au Népal','L’Ours'),(7,' A ceux qui osent, rien n’est impossible.','Rire pendant 15 minutes','https://cdn.pixabay.com/photo/2018/07/19/13/49/buddha-3548554_960_720.jpg','La maman d’Émilie n’est pas contente - Regarde, le lait a débordé, je t’avais pourtant demandé de regarder ta montre. - Mais je l’ai fait, il était exactement 8 h 10 quand le lait a débordé !','La tortue');
 /*!40000 ALTER TABLE `daily` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,4 +86,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-07 17:26:24
+-- Dump completed on 2022-05-08 17:24:55
