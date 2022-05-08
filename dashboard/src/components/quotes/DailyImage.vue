@@ -1,4 +1,5 @@
 <template>
+<div class="col-md-6">
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
@@ -7,6 +8,7 @@
           <img v-bind:src= image alt="DailyImage">
           <button v-on:click="newImage">New</button>
         </div>
+</div>
 </template>
 
 <script>
@@ -57,6 +59,8 @@ export default {
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  margin-bottom: 2em;
+  margin-top: 2em;
 }
 .list-inline{
     display:inline-flex;
@@ -79,5 +83,6 @@ padding: 12px 45px;
 letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
+width: 10em;
 }
 </style>

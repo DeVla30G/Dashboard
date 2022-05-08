@@ -32,7 +32,6 @@ const routes = [
     component: AdminView
   },
   {
-    path: '/about',
     path: '/about/:id',
     name: 'about',
     // route level code-splitting

@@ -1,12 +1,14 @@
 <template>
+<div class="col-md-6">
         <div class="card" >
           <div class="list-inline">
             <img src="../../assets/zen-icon.png" alt="lotus"/>
             <h3>Your Daily Quote :</h3>
-          </div>
+          </div >
           <p>{{ positive }}</p>
           <button v-on:click="newQuote">New</button>
         </div>
+</div>
 </template>
 
 <script>
@@ -50,13 +52,16 @@ export default {
 
 <style scoped>
 .card{
-  height: auto;
+  height: 22em;
   width: 35em;
   margin-left: 20em;
   background-color: pink;
   border-radius: 20px;
   padding: 10px;
   box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  margin-bottom: 2em;
+  margin-top: 2em;
+
 }
 
 img{
@@ -74,5 +79,6 @@ padding: 12px 45px;
 letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
+width: 10em;
 }
 </style>

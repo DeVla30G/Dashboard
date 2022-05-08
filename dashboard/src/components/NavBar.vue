@@ -101,7 +101,7 @@ export default {
   },
   computed () {},
   methods: {
-     goAbout () {
+    goAbout () {
       axios.get('http://localhost:3000/users/' + this.$route.params.id)
       this.$router.push('/about/' + this.$route.params.id)
     },
