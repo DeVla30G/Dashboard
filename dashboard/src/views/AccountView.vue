@@ -13,6 +13,7 @@
         <daily-quotes/>
         <daily-joke/>
         <daily-image/>
+        <SpiritAnim/>
         <challenge/>
         <weather-view/>
         <weather-comp/>
@@ -31,6 +32,7 @@ import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import Challenge from '../components/quotes/Challenge.vue'
 import DailyImage from '../components/quotes/DailyImage.vue'
 import DailyJoke from '../components/quotes/DailyJoke.vue'
+import SpiritAnim from '../components/quotes/SpiritAnim.vue'
 // import SideBar from '@/components/SideBar.vue'
 // import { apiUrl } from '../../config.json'
 export default {
@@ -43,7 +45,8 @@ export default {
     DailyQuotes,
     Challenge,
     DailyImage,
-    DailyJoke
+    DailyJoke,
+    SpiritAnim
   }
 }
 
