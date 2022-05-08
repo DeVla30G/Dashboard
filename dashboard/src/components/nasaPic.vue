@@ -1,4 +1,5 @@
 <template>
+<div class="col-md-6">
 <div class="nasa_pic_wrapper" >
     <div class="title">
     <h2> {{ url.title }} </h2>
@@ -6,6 +7,7 @@
     <div class="display-pic">
     <img v-bind:src= url.url alt="nasa picture of the day"/>
     </div>
+</div>
 </div>
 </template>
 
@@ -38,12 +40,16 @@ export default {
     flex-direction: column;
     border: 2px solid black;
     background-color: rgb(139, 139, 187);
-    width:40em;
+    width:33em;
     height:30em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
     justify-content: center;
     align-content: normal;
+    margin-bottom: 2em;
+    margin-top: 2em;
+    text-align: center;
+    margin-left: 20em;
 }
 .display-pic{
     display:flex;

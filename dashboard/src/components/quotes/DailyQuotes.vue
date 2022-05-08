@@ -5,8 +5,12 @@
             <img src="../../assets/zen-icon.png" alt="lotus"/>
             <h3>Your Daily Quote :</h3>
           </div >
+          <div class="col-md-12">
           <p>{{ positive }}</p>
+          </div>
           <button v-on:click="newQuote">New</button>
+          <button v-on:click="subscribe">Subscribe</button>
+
         </div>
 </div>
 </template>
@@ -45,6 +49,9 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    subscribe () {
+      localStorage.setItem('service', this.positive)
     }
   }
 }
@@ -53,17 +60,17 @@ export default {
 <style scoped>
 .card{
   height: 22em;
-  width: 35em;
-  margin-left: 20em;
+  width: 40em;
   background-color: pink;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  padding: 1em;
+  border-radius:10px;
+  box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
   margin-bottom: 2em;
   margin-top: 2em;
+  text-align: center;
+  margin-left: 20em;
 
 }
-
 img{
   border-radius: 50%;
   margin: .5em;
@@ -80,5 +87,12 @@ letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
 width: 10em;
+margin-left: auto;
+margin-right: auto;
+margin-top: 2em;
 }
+.col-md-12{
+  margin-top: 3em;
+}
+
 </style>

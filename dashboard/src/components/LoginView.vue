@@ -153,12 +153,12 @@ width: 100%;
 .container {
 background-color: #fff;
 border-radius: 10px;
-box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
+box-shadow: 0 14px 28px rgba(148, 115, 115, 0.25),0 10px 10px rgba(0,0,0,0.22);
 position:relative;
 overflow: hidden;
 width: 800px;
 max-width: 100%;
-min-height: 500px;
+min-height: 300px;
 display: block;
 margin-left: auto;
 margin-right: auto;

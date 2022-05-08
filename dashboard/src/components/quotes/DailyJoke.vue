@@ -2,7 +2,7 @@
 <div class="col-md-6">
         <div class="card" >
           <div class="list-inline">
-            <img src="../../assets/zen-icon.png" alt="lotus"/>
+            <img src="../../assets/funny-icon.png" alt="lotus"/>
             <h3>Your Daily Joke :</h3>
           </div>
           <p>{{ dailyJoke }}</p>
@@ -52,16 +52,15 @@ export default {
 
 <style scoped>
 .card{
-  height: auto;
-  width: 35em;
-  margin-left: 20em;
-  background-color: pink;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
+  height: 20em;
+  width: 25em;
+  background-color: rgb(254, 255, 192);
+  padding:1em;
+  border-radius:10px;
+  box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
   margin-bottom: 2em;
   margin-top: 2em;
-
+  margin-left: 20em;
 }
 .list-inline{
     display:inline-flex;
@@ -70,6 +69,8 @@ export default {
     margin:.5em;
 }
 img{
+  width: 4em;
+  height: auto;
   border-radius: 50%;
   margin: .5em;
 }
@@ -80,10 +81,13 @@ background-color: rgb(100, 77, 228);
 color: #FFFFFF;
 font-size: 12px;
 font-weight: bold;
-padding: 12px 45px;
+padding: 12px 15px;
 letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
 width: 10em;
+margin-left: auto;
+margin-right: auto;
+margin-top: 2em;
 }
 </style>

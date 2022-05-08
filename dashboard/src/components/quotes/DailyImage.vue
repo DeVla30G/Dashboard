@@ -2,11 +2,11 @@
 <div class="col-md-6">
         <div class="card" >
           <div class="list-inline">
-            <img src="../../assets/zen-icon.png" alt="lotus"/>
+            <img src="../../assets/cailloux.png" alt="lotus"/>
             <h3>Your Daily sweet image :</h3>
           </div>
-          <img v-bind:src= image alt="DailyImage">
-          <button v-on:click="newImage">New</button>
+          <img src="../../assets/paysage_bonheur.jpg" alt="DailyImage">
+          <button v-on:click="newImage">New</button><button v-on:click="subscribe">subscribe</button>
         </div>
 </div>
 </template>
@@ -52,13 +52,13 @@ export default {
 
 <style scoped>
 .card{
-  height: auto;
-  width: 35em;
+  height: 30em;
+  width: 30em;
+  background-color: rgb(192, 255, 225);
+  padding:1em;
+  border-radius:10px;
+  box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
   margin-left: 20em;
-  background-color: pink;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0px 7px 30px 2px rgba(0,0,0,0.18);
   margin-bottom: 2em;
   margin-top: 2em;
 }
@@ -69,8 +69,16 @@ export default {
     margin:.5em;
 }
 img{
+  width:4em;
+  height:auto;
   border-radius: 50%;
   margin: .5em;
+}
+img:nth-child(2){
+    width: 27em;
+    height: auto;
+    border-radius: 10px;
+    border: 2px double green;
 }
 button {
 border-radius: 20px;
@@ -84,5 +92,7 @@ letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
 width: 10em;
+margin-left: auto;
+margin-right: auto;
 }
 </style>

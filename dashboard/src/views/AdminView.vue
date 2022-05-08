@@ -7,6 +7,7 @@
      {{user.role}}
       {{user.created_at}}
       {{user.updated_at}}
+      {{myservice}}
 
 </div>
 </div>
@@ -21,7 +22,8 @@ export default {
     name: 'AdminView',
     data () {
       return {
-        users: []
+        users: [],
+        myservice : ''
     }
   },
     mounted () {
@@ -34,6 +36,11 @@ export default {
       .catch((err) => {
         console.log(err)
       })
+  },
+  methods : {
+     service () {
+        myservice = localStorage.getItem('service')
+     }
   }
 
 }

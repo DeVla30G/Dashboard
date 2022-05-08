@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="flex min-h-screen">
    <nav-bar />
    <h1> My Account </h1>
@@ -8,6 +9,7 @@
       <side-bar-account/>
     </aside>
   </div>
+</div>
 </template>
 
 <script>
