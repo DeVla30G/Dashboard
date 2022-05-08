@@ -6,15 +6,19 @@
     <aside>
       <side-bar/>
     </aside>
+    <div class="widgets">
+      <nasa-info/>
+      <nasa-pic/>
+    </div>
   </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar.vue'
 import SideBar from '@/components/SideBar.vue'
-/* import nasaPic from '@/components/nasaPic.vue'
+import nasaPic from '@/components/nasaPic.vue'
 import nasaInfo from '@/components/nasaInfo.vue'
-import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
+/* import DailyQuotes from '@/components/quotes/DailyQuotes.vue'
 import WeatherView from '@/components/WeatherView.vue'
 import WeatherComp from '@/components/WeatherComp.vue'
 import Challenge from '@/components/quotes/Challenge.vue'
@@ -26,10 +30,10 @@ export default {
   name: 'DashBoard',
   components: {
     NavBar,
-    SideBar
-    /* nasaPic,
-    nasaInfo,
-    DailyQuotes,
+    SideBar,
+    nasaPic,
+    nasaInfo
+  /* DailyQuotes,
     WeatherView,
     WeatherComp,
     Challenge,

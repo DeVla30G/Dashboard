@@ -34,7 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .nasa_pic_wrapper{
     display:flex;
     flex-direction: column;
@@ -55,6 +55,8 @@ export default {
 }
 .title{
     padding: 0 3em;
+    text-align: center;
+    overflow:auto;
 }
 img{
   max-width: 35em;

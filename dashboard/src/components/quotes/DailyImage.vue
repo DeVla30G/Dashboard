@@ -1,6 +1,7 @@
 <template>
 <div class="col-md-6">
         <div class="card" >
+          <button v-on:click='closeMe'>X</button>
           <div class="list-inline">
             <img src="../../assets/cailloux.png" alt="lotus"/>
             <h3>Your Daily sweet image :</h3>
@@ -45,6 +46,9 @@ export default {
         .catch((err) => {
           console.log(err)
         })
+    },
+    closeMe () {
+      this.$emit('closeMe')
     }
   }
 }

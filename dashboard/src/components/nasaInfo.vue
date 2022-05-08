@@ -39,7 +39,9 @@ export default {
     height:25em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-   text-align: center;
+   text-align: center !important;
+    justify-content: center !important;
+    align-content: normal !important;
 }
 .display_info{
   overflow:scroll;
@@ -49,10 +51,12 @@ export default {
   margin:1em;
   border-radius:5px;
   background-color: antiquewhite;
-  text-align: justify;
+  text-align: justify !important;
+   text-align: center !important;
   padding: .8em;
 }
 h4, h5{
 margin:.5em;
+overflow: overlay;
 }
 </style>
