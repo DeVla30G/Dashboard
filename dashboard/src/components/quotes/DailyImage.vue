@@ -4,7 +4,7 @@
             <img src="../../assets/cailloux.png" alt="lotus"/>
             <h3>Your Daily sweet image :</h3>
           </div>
-          <img src="../../assets/paysage_bonheur.jpg" alt="DailyImage">
+          <img v-bind:src= image alt="DailyImage">
           <button v-on:click="newImage">New</button>
         </div>
 </template>
