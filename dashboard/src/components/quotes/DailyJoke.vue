@@ -58,9 +58,6 @@ export default {
   padding:1em;
   border-radius:10px;
   box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-  margin-bottom: 2em;
-  margin-top: 2em;
-  margin-left: 20em;
 }
 .list-inline{
     display:inline-flex;

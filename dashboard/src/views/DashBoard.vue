@@ -1,6 +1,5 @@
 <template>
-<div>
-<div class="flex min-h-screen">
+<div class="flex ">
    <nav-bar />
 </div>
   <div class="corps">
@@ -8,8 +7,6 @@
       <side-bar/>
     </aside>
   </div>
-</div>
-
 </template>
 
 <script>

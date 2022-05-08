@@ -39,10 +39,7 @@ export default {
     height:25em;
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
-    margin-bottom: 2em;
-    margin-top: 2em;
    text-align: center;
-   margin-left: 20em;
 }
 .display_info{
   overflow:scroll;

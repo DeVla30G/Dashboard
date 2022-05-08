@@ -1,5 +1,4 @@
 <template>
-
       <!-- Search bar -->
       <div class="search-box">
           <h3> Search by city:</h3>
@@ -57,15 +56,7 @@ export default {
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
     margin:0;
     padding: 1em;
-    margin-left: 20em;
   }
-  .col-md-6{
-    margin-bottom: 2em;
-    margin-top: 2em;
-    text-align: center;
-    margin-left: 20em;
-  }
-
   .weather-box{
     margin-left: 20em;
   }

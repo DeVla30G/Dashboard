@@ -1,33 +1,31 @@
 <template>
-<div class="col-md-6">
         <div class="card" >
           <div class="list-inline">
-            <img src="../../assets/cailloux.png" alt="lotus"/>
-            <h3>Your Daily sweet image :</h3>
+            <img src="../../assets/animal.png" alt="lotus"/>
+            <h3>Your Daily Spirit Animal :</h3>
           </div>
-          <img v-bind:src= image alt="DailyImage">
-          <button v-on:click="newImage">New</button>
+          <p>{{ spirit_animal }}</p>
+          <button v-on:click="newAnim">New</button>
         </div>
-</div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-  name: 'DailyImage',
+  name: 'spirit_animal',
   props: [
     'quot'
   ],
   data: () => {
     return {
-      image: ''
+      spirit_animal: ''
     }
   },
   mounted () {
     axios
-      .get('http://localhost:3030/dailyImage')
+      .get('http://localhost:3030/spiritAnim')
       .then((response) => {
-        this.image = (response.data[0].image)
+        this.spirit_animal = (response.data[0].spirit_animal)
         console.log(response.data)
       })
       .catch((err) => {
@@ -35,11 +33,11 @@ export default {
       })
   },
   methods: {
-    newImage () {
+    newAnim () {
       axios
-        .get('http://localhost:3030/dailyImage')
+        .get('http://localhost:3030/spiritAnim')
         .then((response) => {
-          this.image = response.data[0].image
+          this.spirit_animal = response.data[0].spirit_animal
           console.log(response.data)
         })
         .catch((err) => {
@@ -52,9 +50,9 @@ export default {
 
 <style scoped>
 .card{
-  height: 30em;
-  width: 30em;
-  background-color: rgb(192, 255, 225);
+  height: 20em;
+  width: 25em;
+  background-color: rgb(154, 253, 124);
   padding:1em;
   border-radius:10px;
   box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
@@ -66,16 +64,10 @@ export default {
     margin:.5em;
 }
 img{
-  width:4em;
-  height:auto;
+  width: 4em;
+  height: auto;
   border-radius: 50%;
   margin: .5em;
-}
-img:nth-child(2){
-    width: 27em;
-    height: auto;
-    border-radius: 10px;
-    border: 2px double green;
 }
 button {
 border-radius: 20px;
@@ -84,12 +76,9 @@ background-color: rgb(100, 77, 228);
 color: #FFFFFF;
 font-size: 12px;
 font-weight: bold;
-padding: 12px 45px;
+padding: 12px 15px;
 letter-spacing: 1px;
 text-transform: uppercase;
 transition: transform 80ms ease-in;
-width: 15em;
-margin-left: auto;
-margin-right: auto;
 }
 </style>

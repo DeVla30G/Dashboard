@@ -1,5 +1,4 @@
 <template>
-
 <div class="weather_wrapper">
     <p> {{ meteo }} </p>
     <div class="display_info">
@@ -88,8 +87,6 @@ export default {
     border-radius:10px;
     box-shadow: 3px 3px 10px 6px rgb(68, 68, 68);
     margin:0;
-    margin-left: 20em;
-    margin-bottom: 1em;
 }
 .display_info{
   overflow-x: hidden;
