@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send({code: 200, message: "Welcome to Api Microservices"});
+  res.send({code: 200, message: "Welcome to API_NASA"});
 });
 
 module.exports = router;
